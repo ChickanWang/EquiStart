@@ -43,6 +43,7 @@ export const gameScenes = {
         concerns that the candidate might not fit the established company culture. As the founder, 
         you must decide how to proceed while balancing innovation, diversity, and business performance.`,
         background: "/backgrounds/office_background.jpg",
+        research: "research1",
         sprite: "/sprites/ceo.png",
         position: "left",
         choices: [

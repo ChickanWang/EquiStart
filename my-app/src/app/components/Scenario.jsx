@@ -5,6 +5,7 @@ import { Box, Button, Card, CardMedia, CardActionArea, Typography, ButtonGroupCo
 const Scenario = ({
   title,
   text,
+  research,
   background,
   sprite,
   position,
@@ -22,15 +23,42 @@ const Scenario = ({
       width: '100%',
     }}>
       <Box
+        onClick={() => onChoice(research)}
+        sx={{
+          position: "fixed",
+          top: "9vh",
+          left: "10px",
+          height: "20vh",
+          zIndex: 2,
+          cursor: "pointer",
+          transition: "transform 0.2s, box-shadow 0.2s",
+          "&:hover": {
+            transform: "scale(1.1)",
+            boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
+          },
+        }}
+      >
+        <Box
+          component="img"
+          src="/sprites/research.png"
+          alt="Research"
+          sx={{
+            height: "100%",
+            objectFit: "contain",
+            width: "auto",
+          }}
+        />
+      </Box>
+      <Box
         component="img"
         src={sprite}
         alt="Character"
         sx={{
           position: "fixed",
           bottom: "40vh",
-          left: "50%",
+          left: "65%",
           transform: "translateX(-50%)",
-          height: "50vh",
+          height: "35vh",
           objectFit: "contain",
           zIndex: 2,
         }}
@@ -64,9 +92,10 @@ const Scenario = ({
             color="#ffcc00"
             gutterBottom
             sx={{
+              fontSize: "1.3rem",
               textAlign: "center",
               mb: 2,
-              fontFamily: "'Press Start 2P'",
+              fontFamily: "Inconsolata, monospace",
             }}
           >
             {title}
@@ -80,9 +109,9 @@ const Scenario = ({
             <Typography 
               variant="body1"
               sx={{
-                fontSize: "1rem",
+                fontSize: "0.8rem",
                 mb: 1,
-                fontFamily: "'Press Start 2P'",
+                fontFamily: "Inconsolata, monospace",
                 textAlign: "center",
               }}
             >
@@ -106,10 +135,9 @@ const Scenario = ({
               key={i}
               sx={{
                 flex: "1 1 250px",
-                height: "100px",
-                maxWidth: "300px",
-                borderRadius: "16px",
-                background: "linear-gradient(145deg, #f0c27b, #4b1248)",
+                height: "150px",
+                maxWidth: "400px",
+                background: "linear-gradient(145deg, #ffea8c, #ffd966)",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
                 transition: "transform 0.2s, box-shadow 0.2s",
                 "&:hover": {
@@ -119,6 +147,9 @@ const Scenario = ({
                 display: "flex",
                 p: 2,
                 cursor: "pointer",
+                borderStyle: "solid",
+                borderWidth: "2px",
+                borderColor: "#ffcc00",
               }}
             >
               <CardActionArea
@@ -130,9 +161,10 @@ const Scenario = ({
                   gutterBottom
                   sx={{
                     textAlign: "center",
-                    fontFamily: "'Press Start 2P'",
+                    fontFamily: "Inconsolata, monospace",
                     fontWeight: "bold",
-                    color: "white",
+                    color: "black",
+                    fontSize: "1rem",
                   }}
                 >
                   {choice.label}
@@ -140,9 +172,9 @@ const Scenario = ({
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: "0.8rem",
-                    fontFamily: "'Press Start 2P'",
-                    color: "white",
+                    fontSize: "0.7rem",
+                    fontFamily: "Inconsolata, monospace",
+                    color: "black",
                     textAlign: "center",
                   }}
                 >

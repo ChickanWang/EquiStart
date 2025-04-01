@@ -72,7 +72,7 @@ const Dialogue = ({ dialogueData, background, sprite, nextState, onComplete }) =
           sx={{
             textAlign: "center",
             mb: 2,
-            fontFamily: "'Press Start 2P', cursive",
+            fontFamily: "Inconsolata, monospace, cursive",
           }}
         >
           {dialogueData[index]}
@@ -82,7 +82,7 @@ const Dialogue = ({ dialogueData, background, sprite, nextState, onComplete }) =
             variant="contained"
             onClick={handleBack}
             disabled={index === 0}
-            sx={{ fontFamily: "'Press Start 2P', cursive" }}
+            sx={{ fontFamily: "Inconsolata, monospace, cursive" }}
           >
             ←
           </Button>
@@ -90,7 +90,7 @@ const Dialogue = ({ dialogueData, background, sprite, nextState, onComplete }) =
             variant="contained"
             color="primary"
             onClick={handleNext}
-            sx={{ fontFamily: "'Press Start 2P', cursive" }}
+            sx={{ fontFamily: "Inconsolata, monospace, cursive" }}
           >
             {index < dialogueData.length - 1 ? "→" : "OK"}
           </Button>
