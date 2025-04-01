@@ -187,7 +187,8 @@ export const gameScenes = {
       props: {
         title: "Inclusive Hiring Practices",
         content: "Research shows that diverse teams perform better, innovate more, and reflect broader perspectives...",
-        background: "/backgrounds/research_background.jpeg",
+        background: "/backgrounds/library.jpg",
+        sprite: "/sprites/back_to_work.png",
         nextState: "scenario1"
       }
     }
