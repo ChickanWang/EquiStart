@@ -134,9 +134,6 @@ const Research = ({ title, content, background, sprite, onContinue }) => {
                   else setCase3(e.target.value);
                 }}
               >
-                <MenuItem value="example1">Example 1</MenuItem>
-                <MenuItem value="example2">Example 2</MenuItem>
-                <MenuItem value="example3">Example 3</MenuItem>
               </Select>
             </FormControl>
           ))}
