@@ -59,7 +59,7 @@ export const gameScenes = {
         nextState: "nextState", 
       },
     },
-    
+
     // Scenario 1: Ethical Hiring
     ethical_hiring_scenario: {
       type: "scenario",
@@ -172,7 +172,8 @@ export const gameScenes = {
       props: {
         title: "Sustainable Business Practices",
         content: "Research indicates that sustainable practices can lead to long-term profitability and brand loyalty...",
-        background: "/backgrounds/research_background.avif",
+        background: "/backgrounds/library.jpg",
+        sprite: "/sprites/back_to_work.png",
         nextState: "environment"
       }
     },
