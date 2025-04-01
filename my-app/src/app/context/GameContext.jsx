@@ -1,10 +1,14 @@
+/*
+  This page contains the GameContext, which is used to manage the game state and metrics.
+  The entire application is wrapped in this context, allowing all components to access the game state and functions.
+*/
 "use client";
 import React, { createContext, useState } from 'react';
 
 export const GameContext = createContext();
 
 export const GameProvider = ({ children }) => {
-  const [gameState, setGameState] = useState("dialogue1");
+  const [gameState, setGameState] = useState("scenario1");
   const [metrics, setMetrics] = useState({
     employeeSatisfaction: 0,
     profitability: 0,

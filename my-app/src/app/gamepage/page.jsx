@@ -1,9 +1,16 @@
-// src/app/GamePage.jsx or similar
+/* 
+  This is the file that contains the main game page logic.
+  It imports the GameContext to access the game state and functions,
+  and the gameScenes to render the appropriate scene based on the game state.
+
+  (gameScenes is a static file that contains the game scenes [dialogues, scenarios, research] and their properties)
+*/
+
 "use client";
 import React, { useContext } from 'react';
 
 import { GameContext } from '../context/GameContext';
-import { gameScenes } from '../static/GameScenes';
+import { gameScenes } from '../config/GameScenes';
 import Dialogue from '../components/Dialogue';
 import Research from '../components/Research';
 import Scenario from '../components/Scenario';
@@ -13,7 +20,6 @@ export default function GamePage() {
   const scene = gameScenes[gameState];
 
   const handleChoice = (choice) => {
-    // Update metrics and state here as needed.
     updateMetric("employeeSatisfaction", metrics.employeeSatisfaction + choice.effect);
     setGameState(choice.nextState);
   };
@@ -33,5 +39,5 @@ export default function GamePage() {
     }
   };
 
-  return <div>{renderScene()}</div>;
+  return <>{renderScene()}</>;
 }
