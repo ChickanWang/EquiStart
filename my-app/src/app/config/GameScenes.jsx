@@ -31,7 +31,7 @@ export const gameScenes = {
         ],
         background: "/backgrounds/office_background.jpg",
         sprite: "/sprites/ceo.png",
-        nextState: "research1", 
+        nextState: "scenario1", 
       },
     },
     scenario1: {
@@ -80,7 +80,7 @@ export const gameScenes = {
         title: "Inclusive Hiring Practices",
         content: "Research shows that diverse teams perform better, innovate more, and reflect broader perspectives...",
         background: "/backgrounds/research_background.avif",
-        nextState: "dialogue2"
+        nextState: "scenario1"
       }
     }    
   };

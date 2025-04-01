@@ -11,6 +11,7 @@ const Scenario = ({
   position,
   choices,
   onChoice,
+  setState,
 }) => {
   return (
     <div style={{
@@ -23,7 +24,7 @@ const Scenario = ({
       width: '100%',
     }}>
       <Box
-        onClick={() => onChoice(research)}
+        onClick={() => setState(research)}
         sx={{
           position: "fixed",
           top: "9vh",

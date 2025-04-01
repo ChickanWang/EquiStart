@@ -14,6 +14,11 @@ export default function GamePage() {
   const router = useRouter();
   const scene = gameScenes[gameState];
 
+  const setState = (state) => {
+    console.log(state);
+    setGameState(state);
+  };
+
   const handleChoice = (choice) => {
     updateMetric("employeeSatisfaction", metrics.employeeSatisfaction + choice.effect);
     setGameState(choice.nextState);
@@ -42,7 +47,7 @@ export default function GamePage() {
           />
         );
       case "scenario":
-        return <Scenario {...props} onChoice={handleChoice} />;
+        return <Scenario {...props} onChoice={handleChoice} setState={setState}/>;
         case "research":
           return (
             <Research
