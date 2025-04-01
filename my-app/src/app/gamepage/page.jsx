@@ -20,7 +20,24 @@ export default function GamePage() {
   };
 
   const handleChoice = (choice) => {
-    updateMetric("employeeSatisfaction", metrics.employeeSatisfaction + choice.effect);
+    const metricKeys = [
+      "employeeSatisfaction",
+      "profitability",
+      "employeeRetention",
+      "investorSatisfaction",
+      "publicPerception",
+      "companyCash",
+      "DEIIndex",
+      // optionally add "employeeEngagement" if needed
+    ];
+  
+    choice.effect.forEach((change, index) => {
+      const metric = metricKeys[index];
+      if (metric) {
+        updateMetric(metric, metrics[metric] + change);
+      }
+    });
+  
     setGameState(choice.nextState);
   };
 
@@ -89,7 +106,6 @@ export default function GamePage() {
           transition: "transform 0.2s, box-shadow 0.2s",
           "&:hover": {
             transform: "scale(1.1)",
-            boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
           },
         }}
       >

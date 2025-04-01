@@ -61,7 +61,7 @@ const StatsComponent = () => {
       {Object.entries(metrics).map(([key, value]) => {
         const previous = previousMetrics[key] ?? value;
         const diff = value - previous;
-        const diffText = diff > 0 ? `+${diff.toFixed(1)}` : `${diff.toFixed(1)}`;
+        const diffText = diff > 0 ? `+${Math.round(diff)}` : `${Math.round(diff)}`;
         const tooltipText = diff === 0 ? "No change" : `Change: ${diffText}`;
         const barWidth = `${Math.min(100, Math.max(0, value))}%`;
 
