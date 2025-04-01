@@ -14,7 +14,7 @@ const statColors = {
   employeeEngagement: "#03a9f4",
 };
 
-const pixelFont = "'Press Start 2P', monospace"; // Load this in your _app.js or HTML <head>
+const pixelFont = "'Press Start 2P', Inconsolata, monospace"; // Load in your app
 
 const StatsComponent = () => {
   const { metrics, previousMetrics } = useContext(GameContext);
@@ -36,23 +36,24 @@ const StatsComponent = () => {
   return (
     <Box
       sx={{
-        width: 220,
-        backgroundColor: "#222",
-        border: "4px solid #fff",
-        borderRadius: 0,
+        width: 250,
+        backgroundColor: "#1a1a1a",
+        border: "4px solid #8B4513",
+        boxShadow: "0 0 0 4px #000",
+        borderRadius: "6px",
         p: 2,
-        boxShadow: "0 0 0 2px #000",
         fontFamily: pixelFont,
-        color: "#0f0",
+        color: "#ffcc66",
       }}
     >
       <Typography
         variant="h6"
         sx={{
+          fontSize: "0.7rem",
           fontFamily: pixelFont,
-          fontSize: "0.8rem",
           textAlign: "center",
           mb: 2,
+          textShadow: "1px 1px 0 #000",
         }}
       >
         STATS
@@ -69,10 +70,11 @@ const StatsComponent = () => {
           <Box key={key} sx={{ mb: 2 }}>
             <Typography
               sx={{
-                fontFamily: pixelFont,
                 fontSize: "0.55rem",
-                mb: "2px",
-                color: "#fff",
+                fontFamily: pixelFont,
+                mb: "4px",
+                color: "#ffcc66",
+                textShadow: "1px 1px 0 #000",
               }}
             >
               {key.replace(/([A-Z])/g, " $1").trim().toUpperCase()}
@@ -80,11 +82,11 @@ const StatsComponent = () => {
             <Tooltip title={tooltipText} arrow placement="top">
               <Box
                 sx={{
-                  backgroundColor: "#555",
-                  border: "2px solid #000",
                   height: "12px",
                   width: "100%",
-                  overflow: "hidden",
+                  backgroundColor: "#333",
+                  border: "2px solid #000",
+                  boxShadow: "inset 1px 1px 0 #444",
                   position: "relative",
                 }}
               >
@@ -93,7 +95,8 @@ const StatsComponent = () => {
                     width: barWidth,
                     height: "100%",
                     backgroundColor: statColors[key] || "#0ff",
-                    transition: "width 0.3s ease",
+                    transition: "width 0.4s ease-in-out",
+                    boxShadow: "1px 1px 0 #000",
                   }}
                 />
               </Box>
