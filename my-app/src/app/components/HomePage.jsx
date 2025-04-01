@@ -1,9 +1,18 @@
 "use client";
-import React from 'react';
-import Link from 'next/link';
+import React, { useContext } from 'react';
+import { useRouter } from 'next/navigation';
 import { Box, Button, Typography, Container } from '@mui/material';
+import { GameContext } from '../context/GameContext';
 
 export default function Homepage() {
+  const router = useRouter();
+  const { setGameState } = useContext(GameContext);
+
+  const handlePlayNow = () => {
+    setGameState('dialogue1'); // 👈 Always start from the beginning
+    router.push('/gamepage');  // 👈 Navigate to game
+  };
+
   return (
     <Box
       sx={{
@@ -21,11 +30,14 @@ export default function Homepage() {
         <Typography variant="h6" gutterBottom>
           Make key decisions, manage funding, and build an inclusive company.
         </Typography>
-        <Link href="/gamepage" passHref>
-          <Button variant="contained" color="primary" size="large">
-            Play Now
-          </Button>
-        </Link>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          onClick={handlePlayNow}
+        >
+          Play Now
+        </Button>
       </Container>
     </Box>
   );

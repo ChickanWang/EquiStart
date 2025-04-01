@@ -29,7 +29,9 @@ export const gameScenes = {
           "Your goal is to balance company growth and employee satisfaction.",
           "Are you ready to get started?"
         ],
-        nextState: "scenario1", // 👈 Tells dialogue where to go next
+        background: "/backgrounds/office_background.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "scenario1", 
       },
     },
     scenario1: {

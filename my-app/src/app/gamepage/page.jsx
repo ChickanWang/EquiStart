@@ -51,18 +51,45 @@ export default function GamePage() {
   };
 
   return (
-    <Box display="flex" flexDirection="row" height="100vh" p={2}>
-      <Box flexGrow={1}>{renderScene()}</Box>
-      <Box width={250} ml={2} display="flex" flexDirection="column" alignItems="center">
-        <StatsComponent />
+    <Box
+      sx={{
+        position: "relative",
+        width: "100%",          // Fix: avoid 100vw to prevent horizontal scrollbars
+        minHeight: "100vh",     // Ensure full screen height
+        overflow: "hidden",
+      }}
+    >
+      {/* Render the current scene (fills entire area) */}
+      {renderScene()}
+
+      {/* Home Button - Top Left */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 16,
+          left: 16,
+          zIndex: 10,
+        }}
+      >
         <Button
           variant="contained"
           color="secondary"
           onClick={handleHomeClick}
-          sx={{ mt: 2 }}
         >
           Home
         </Button>
+      </Box>
+
+      {/* Stats Panel - Top Right */}
+      <Box
+        sx={{
+          position: "absolute",
+          top: 16,
+          right: 16,
+          zIndex: 10,
+        }}
+      >
+        <StatsComponent />
       </Box>
     </Box>
   );
