@@ -9,8 +9,15 @@ import Scenario from '../components/Scenario';
 import StatsComponent from '../components/Stats';
 import { Box, Button } from '@mui/material';
 
+export function getRandomScenarioKey(scenes, seenScenes) {
+  const keys = Object.keys(scenes)
+    .filter(key => scenes[key].type === 'scenario' && !seenScenes.has(key));
+  if (keys.length === 0) return null;
+  return keys[Math.floor(Math.random() * keys.length)];
+}
+
 export default function GamePage() {
-  const { gameState, setGameState, metrics, updateMetric } = useContext(GameContext);
+  const { gameState, setGameState, metrics, updateMetric, seenScenes } = useContext(GameContext);
   const router = useRouter();
   const scene = gameScenes[gameState];
 
@@ -21,11 +28,11 @@ export default function GamePage() {
 
   const handleChoice = (choice) => {
     updateMetric("employeeSatisfaction", metrics.employeeSatisfaction + choice.effect);
-    setGameState(choice.nextState);
+    setGameState("dialogue" + String(seenScenes.size + 1));
   };
 
   const handleHomeClick = () => {
-    if (window.confirm("Are you sure you want to return to the home page? Your progress may be lost.")) {
+    if (window.confirm("Are you sure you want to return to the home page? Your progress may be lost if you refresh.")) {
       router.push("/");
     }
   };
@@ -60,6 +67,8 @@ export default function GamePage() {
             }}
           />
         );
+      case "random":
+        setGameState(getRandomScenarioKey(gameScenes, seenScenes));
       default:
         return <div>Unknown state</div>;
     }

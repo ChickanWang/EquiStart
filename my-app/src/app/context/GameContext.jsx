@@ -23,6 +23,8 @@ export const GameProvider = ({ children }) => {
 
   const [previousMetrics, setPreviousMetrics] = useState(metrics); // ← NEW
 
+  const [seenScenes, setSeenScenes] = useState(new Set());
+
   const updateMetric = (key, value) => {
     setPreviousMetrics(prev => ({ ...prev, [key]: metrics[key] })); // Save current before update
     setMetrics(prev => ({ ...prev, [key]: value }));
@@ -34,8 +36,10 @@ export const GameProvider = ({ children }) => {
         gameState,
         setGameState,
         metrics,
-        previousMetrics, // Expose it to components
+        previousMetrics,
         updateMetric,
+        seenScenes,
+        setSeenScenes,
       }}
     >
       {children}

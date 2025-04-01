@@ -35,7 +35,6 @@ const Scenario = ({
           transition: "transform 0.2s, box-shadow 0.2s",
           "&:hover": {
             transform: "scale(1.1)",
-            boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
           },
         }}
       >
@@ -143,7 +142,6 @@ const Scenario = ({
                 transition: "transform 0.2s, box-shadow 0.2s",
                 "&:hover": {
                   transform: "scale(1.1)",
-                  boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
                 },
                 display: "flex",
                 p: 2,
