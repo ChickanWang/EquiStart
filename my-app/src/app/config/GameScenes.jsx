@@ -20,11 +20,8 @@
 */
 
 export const gameScenes = {
-    randomScene: {
-      type: "random",
-    },
-    nextDialogue: {
-      type: "nextDialogue"
+    nextState: {
+      type: "handleNextState",
     },
     dialogue1: {
       type: "dialogue",
@@ -37,10 +34,11 @@ export const gameScenes = {
         ],
         background: "/backgrounds/office_background.jpg",
         sprite: "/sprites/ceo.png",
-        nextState: "randomScene", 
+        nextState: "nextState", 
       },
     },
-    scenario1: {
+    // Scenario 1: Ethical Hiring
+    ethical_hiring_scenario: {
       type: "scenario",
       props: {
         title: "Ethical Hiring Dilemma",
@@ -57,24 +55,53 @@ export const gameScenes = {
                 label: "Prioritize Diversity & Innovation",
                 text: "Hire the candidate to boost diversity and bring fresh perspectives.",
                 effect: [10, 5, 15, 20, -5, -5, 0],
-                nextState: "nextDialogue"
+                nextState: "ethical_hiring_scenario_dialogue_1"
             },
             { 
                 label: "Maintain Status Quo",
                 text: "Hire a candidate who fits the current mold to keep the team homogeneous.",
                 effect: [10, 10, -10, -5, -10, -15, 0],
-                nextState: "nextDialogue"
+                nextState: "ethical_hiring_scenario_dialogue_2"
             },
             { 
                 label: "Delay & Innovate Hiring Process",
                 text: "Postpone the decision to implement a blind hiring process, then revisit the candidate pool.",
                 effect: [5, 5, 5, 10, 0, -5, -5],
-                nextState: "nextDialogue"
+                nextState: "ethical_hiring_scenario_dialogue_3"
             },
         ],
       },
     },
-    scenario2: {
+    ethical_hiring_scenario_dialogue_1: {
+      type: "dialogue",
+      props: {
+        dialogueData: ["Congrats on your decision! As a result, your company has seen a boost in innovation and employee satisfaction."],
+        background: "/backgrounds/office_background.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "nextState",
+      },
+    },
+    ethical_hiring_scenario_dialogue_2: {
+      type: "dialogue",
+      props: {
+        dialogueData: ["Your decision has led to a more homogeneous team, but some employees are unhappy."],
+        background: "/backgrounds/office_background.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "nextState",
+      },
+    },
+    ethical_hiring_scenario_dialogue_3: {
+      type: "dialogue",
+      props: {
+        dialogueData: ["Your decision to delay has led to a more inclusive hiring process, but it may take longer to see results."],
+        background: "/backgrounds/office_background.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "nextState",
+      },
+    },
+
+    // Scenario 2: Environmental Responsibility
+    environment: {
       type: "scenario",
       props: {
         title: "Environmental Responsibility",
@@ -90,21 +117,48 @@ export const gameScenes = {
                 label: "Prioritize Sustainability",
                 text: "Invest in eco-friendly materials and processes, even if it means lower profits.",
                 effect: [10, 5, 15, 20, -5, -5, 0],
-                nextState: "nextDialogue"
+                nextState: "environmental_dialogue_1"
             },
             { 
                 label: "Maintain Current Practices",
                 text: "Continue with the current product line for maximum profit.",
                 effect: [10, 10, -10, -5, -10, -15, 0],
-                nextState: "nextDialogue"
+                nextState: "environmental_dialogue_2"
             },
             { 
                 label: "Prioritize Profitability",
                 text: "Focus on maximizing profits, even if it harms the environment.",
                 effect: [5, 5, 5, 10, 0, -5, -5],
-                nextState: "nextDialogue"
+                nextState: "environmental_dialogue_3"
             },
         ],
+      },
+    },
+    environmental_dialogue_1: {
+      type: "dialogue",
+      props: {
+        dialogueData: ["Great choice! Your commitment to sustainability has boosted employee morale and brand loyalty."],
+        background: "/backgrounds/office_background_2.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "nextState",
+      },
+    },
+    environmental_dialogue_2: {
+      type: "dialogue",
+      props: {
+        dialogueData: ["Your decision has led to increased profits, but some employees are unhappy with the environmental impact."],
+        background: "/backgrounds/office_background_2.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "nextState",
+      },
+    },
+    environmental_dialogue_3: {
+      type: "dialogue",
+      props: {
+        dialogueData: ["Your focus on profitability has led to short-term gains, but long-term consequences may arise."],
+        background: "/backgrounds/office_background_2.jpg",
+        sprite: "/sprites/ceo.png",
+        nextState: "nextState",
       },
     },
     dialogue2: {
@@ -133,7 +187,7 @@ export const gameScenes = {
       props: {
         title: "Inclusive Hiring Practices",
         content: "Research shows that diverse teams perform better, innovate more, and reflect broader perspectives...",
-        background: "/backgrounds/research_background.avif",
+        background: "/backgrounds/research_background.jpeg",
         nextState: "scenario1"
       }
     }

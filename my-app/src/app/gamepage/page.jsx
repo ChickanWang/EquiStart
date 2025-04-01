@@ -1,5 +1,5 @@
 "use client";
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { GameContext } from '../context/GameContext';
 import { gameScenes } from '../config/GameScenes';
@@ -7,19 +7,48 @@ import Dialogue from '../components/Dialogue';
 import Research from '../components/Research';
 import Scenario from '../components/Scenario';
 import StatsComponent from '../components/Stats';
-import { Box, Button } from '@mui/material';
+import { Box } from '@mui/material';
 
-export function getRandomScenarioKey(scenes, seenScenes) {
+/* 
+  Function to get a random scenario key from the game scenes.
+  The logic to handle moving the game toward funding rounds and ending the game
+  will be handled here, based on the number of seen scenes.
+*/
+export function handleNextState(scenes, seenScenes, setSeenScenes) {
+
+  if (seenScenes.size >= 6) {
+    // If 6 or more scenes have been seen, end the game
+    return "endGame";
+  }
+  else if (seenScenes.size % 2 == 0 && seenScenes.size > 0) {
+    // Move to a funding round every 2 scenes
+    return "fundingRound";
+  }
+
+  // Otherwise, get a random scene
   const keys = Object.keys(scenes)
     .filter(key => scenes[key].type === 'scenario' && !seenScenes.has(key));
-  if (keys.length === 0) return null;
-  return keys[Math.floor(Math.random() * keys.length)];
+
+  const randomScene = keys[Math.floor(Math.random() * keys.length)];
+  setSeenScenes((prev) => new Set(prev).add(randomScene));
+
+  console.log(`Random scene selected: ${randomScene}`);
+  return randomScene;
 }
 
+// Main GamePage component
 export default function GamePage() {
-  const { gameState, setGameState, metrics, updateMetric, seenScenes } = useContext(GameContext);
+  const { gameState, setGameState, metrics, updateMetric, seenScenes, setSeenScenes } = useContext(GameContext);
   const router = useRouter();
   const scene = gameScenes[gameState];
+
+  useEffect(() => {
+    console.log(gameState)
+    if (gameState === "nextState") {
+      console.log("HELLOOOO")
+      setGameState(handleNextState(gameScenes, seenScenes, setSeenScenes));
+    }
+  }, [gameState, seenScenes]);
 
   const setState = (state) => {
     console.log(state);
@@ -29,6 +58,25 @@ export default function GamePage() {
   const handleChoice = (choice) => {
     updateMetric("employeeSatisfaction", metrics.employeeSatisfaction + choice.effect);
     setGameState("dialogue" + String(seenScenes.size + 1));
+    const metricKeys = [
+      "employeeSatisfaction",
+      "profitability",
+      "employeeRetention",
+      "investorSatisfaction",
+      "publicPerception",
+      "companyCash",
+      "DEIIndex",
+      // optionally add "employeeEngagement" if needed
+    ];
+  
+    choice.effect.forEach((change, index) => {
+      const metric = metricKeys[index];
+      if (metric) {
+        updateMetric(metric, metrics[metric] + change);
+      }
+    });
+  
+    setGameState(choice.nextState);
   };
 
   const handleHomeClick = () => {
@@ -67,8 +115,6 @@ export default function GamePage() {
             }}
           />
         );
-      case "random":
-        setGameState(getRandomScenarioKey(gameScenes, seenScenes));
       default:
         return <div>Unknown state</div>;
     }
@@ -98,7 +144,6 @@ export default function GamePage() {
           transition: "transform 0.2s, box-shadow 0.2s",
           "&:hover": {
             transform: "scale(1.1)",
-            boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
           },
         }}
       >

@@ -11,14 +11,14 @@ export const GameProvider = ({ children }) => {
   const [gameState, setGameState] = useState("dialogue1");
 
   const [metrics, setMetrics] = useState({
-    employeeSatisfaction: 30,
-    profitability: 40,
-    employeeRetention: 20,
+    employeeSatisfaction: 50,
+    profitability: 50,
+    employeeRetention: 50,
     investorSatisfaction: 50,
-    publicPerception: 80,
-    companyCash: 10,
-    DEIIndex: 90,
-    employeeEngagement: 60,
+    publicPerception: 50,
+    companyCash: 50,
+    DEIIndex: 50,
+    employeeEngagement: 50,
   });
 
   const [previousMetrics, setPreviousMetrics] = useState(metrics); // ← NEW
