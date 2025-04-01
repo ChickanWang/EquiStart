@@ -1,3 +1,10 @@
+/* 
+  Main GamePage component for the game
+  This page contains the main game logic and rendering.
+  It handles the game state, metrics, and rendering of different scenes.
+  It also contains the logic for transitioning between scenes and handling user choices.
+*/
+
 "use client";
 import React, { useContext, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
@@ -6,6 +13,8 @@ import { gameScenes } from '../config/GameScenes';
 import Dialogue from '../components/Dialogue';
 import Research from '../components/Research';
 import Scenario from '../components/Scenario';
+import FundingRound from '../components/FundingRound';
+import FinalResults from '../components/FinalResults';
 import StatsComponent from '../components/Stats';
 import { Box } from '@mui/material';
 
@@ -18,7 +27,7 @@ export function handleNextState(scenes, seenScenes, setSeenScenes) {
 
   if (seenScenes.size >= 6) {
     // If 6 or more scenes have been seen, end the game
-    return "endGame";
+    return "finalResults";
   }
   else if (seenScenes.size % 2 == 0 && seenScenes.size > 0) {
     // Move to a funding round every 2 scenes
@@ -114,6 +123,14 @@ export default function GamePage() {
               }
             }}
           />
+        );
+      case "fundingRound":
+        return (
+          <FundingRound />
+        );
+      case "finalResults":
+        return (
+          <FinalResults />
         );
       default:
         return <div>Unknown state</div>;
