@@ -43,8 +43,20 @@ export default function GamePage() {
         );
       case "scenario":
         return <Scenario {...props} onChoice={handleChoice} />;
-      case "research":
-        return <Research {...props} />;
+        case "research":
+          return (
+            <Research
+              {...props}
+              background={props.background}
+              onContinue={() => {
+                if (props.nextState) {
+                  setGameState(props.nextState);
+                }
+              }}
+            />
+          );
+        
+        
       default:
         return <div>Unknown state</div>;
     }
