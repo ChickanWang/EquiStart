@@ -24,6 +24,7 @@ const Dialogue = ({ dialogueData, onComplete, nextState }) => {
       sx={{
         position: "fixed",
         bottom: 0,
+        left: 0,
         width: "100%",
         height: "25vh",
         backgroundColor: "rgba(0, 0, 0, 0.85)",

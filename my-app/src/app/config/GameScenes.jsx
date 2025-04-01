@@ -23,10 +23,13 @@ export const gameScenes = {
     dialogue1: {
       type: "dialogue",
       props: {
-        text: "Welcome to the game!",
-        character: "CEO",
-        sprite: "/sprites/ceo.png",
-        position: "left",
+        dialogueData: [
+          "Welcome to the game!",
+          "In this game, you'll make decisions as a CEO.",
+          "Your goal is to balance company growth and employee satisfaction.",
+          "Are you ready to get started?"
+        ],
+        nextState: "scenario1", // 👈 Tells dialogue where to go next
       },
     },
     scenario1: {
@@ -65,12 +68,9 @@ export const gameScenes = {
     dialogue2: {
       type: "dialogue",
       props: {
-        text: "Great choice! Let's see how it affects the company.",
-        character: "CEO",
-        sprite: "/sprites/ceo.png",
-        position: "left",
+        dialogueData: ["You've selected a strategy. Let's see how it plays out!"],
       },
-    },
+    },  
     research1: {
       type: "research",
       props: {
