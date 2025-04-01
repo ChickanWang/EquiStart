@@ -2,6 +2,7 @@
   This page contains the GameContext, which is used to manage the game state and metrics.
   The entire application is wrapped in this context, allowing all components to access the game state and functions.
 */
+
 "use client";
 import React, { createContext, useState } from 'react';
 

@@ -1,3 +1,7 @@
+/*
+  Component to display the game statistics.
+*/
+
 "use client";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { GameContext } from "../context/GameContext";
