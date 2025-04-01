@@ -1,7 +1,7 @@
 "use client";
 import React, { useContext, useEffect, useRef, useState } from "react";
 import { GameContext } from "../context/GameContext";
-import { Box, Typography, LinearProgress, Tooltip } from "@mui/material";
+import { Box, Typography, Tooltip } from "@mui/material";
 
 const statColors = {
   employeeSatisfaction: "#4caf50",
@@ -14,22 +14,21 @@ const statColors = {
   employeeEngagement: "#03a9f4",
 };
 
+const pixelFont = "'Press Start 2P', monospace"; // Load this in your _app.js or HTML <head>
+
 const StatsComponent = () => {
   const { metrics, previousMetrics } = useContext(GameContext);
   const [diffs, setDiffs] = useState({});
   const previousMetricsRef = useRef({});
 
-  // Calculate differences when metrics change
   useEffect(() => {
     const prev = previousMetricsRef.current;
     const newDiffs = {};
-
     for (const key in metrics) {
       const current = metrics[key];
       const previous = prev[key] ?? current;
       newDiffs[key] = current - previous;
     }
-
     setDiffs(newDiffs);
     previousMetricsRef.current = { ...metrics };
   }, [metrics]);
@@ -37,41 +36,64 @@ const StatsComponent = () => {
   return (
     <Box
       sx={{
-        width: 200,
-        backgroundColor: "#f5f5f5",
-        borderRadius: 2,
-        boxShadow: 3,
+        width: 220,
+        backgroundColor: "#222",
+        border: "4px solid #fff",
+        borderRadius: 0,
         p: 2,
+        boxShadow: "0 0 0 2px #000",
+        fontFamily: pixelFont,
+        color: "#0f0",
       }}
     >
-      <Typography variant="h6" fontWeight="bold" gutterBottom textAlign="center">
-        Stats
+      <Typography
+        variant="h6"
+        sx={{
+          fontFamily: pixelFont,
+          fontSize: "0.8rem",
+          textAlign: "center",
+          mb: 2,
+        }}
+      >
+        STATS
       </Typography>
 
       {Object.entries(metrics).map(([key, value]) => {
-        const current = metrics[key];
-        const previous = previousMetrics[key] ?? current;
-        const diff = current - previous;
+        const previous = previousMetrics[key] ?? value;
+        const diff = value - previous;
         const diffText = diff > 0 ? `+${diff.toFixed(1)}` : `${diff.toFixed(1)}`;
         const tooltipText = diff === 0 ? "No change" : `Change: ${diffText}`;
+        const barWidth = `${Math.min(100, Math.max(0, value))}%`;
 
         return (
-          <Box key={key} sx={{ mb: 1 }}>
-            <Typography variant="caption" fontWeight="bold">
-              {key.replace(/([A-Z])/g, " $1").trim()}:
+          <Box key={key} sx={{ mb: 2 }}>
+            <Typography
+              sx={{
+                fontFamily: pixelFont,
+                fontSize: "0.55rem",
+                mb: "2px",
+                color: "#fff",
+              }}
+            >
+              {key.replace(/([A-Z])/g, " $1").trim().toUpperCase()}
             </Typography>
             <Tooltip title={tooltipText} arrow placement="top">
-              <Box>
-                <LinearProgress
-                  variant="determinate"
-                  value={Math.min(100, Math.max(0, value))}
+              <Box
+                sx={{
+                  backgroundColor: "#555",
+                  border: "2px solid #000",
+                  height: "12px",
+                  width: "100%",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                <Box
                   sx={{
-                    height: 8,
-                    borderRadius: 5,
-                    backgroundColor: "#ddd",
-                    "& .MuiLinearProgress-bar": {
-                      backgroundColor: statColors[key] || "#607d8b",
-                    },
+                    width: barWidth,
+                    height: "100%",
+                    backgroundColor: statColors[key] || "#0ff",
+                    transition: "width 0.3s ease",
                   }}
                 />
               </Box>
