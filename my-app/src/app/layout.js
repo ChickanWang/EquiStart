@@ -1,3 +1,8 @@
+/* 
+  This layout component wraps the entire application with the GameProvider context, 
+  allowing all child components to access the game state and functions defined in the context
+*/
+
 "use client";
 import { GameProvider } from './context/GameContext';
 
@@ -10,4 +15,3 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
-// This layout component wraps the entire application with the GameProvider context, allowing all child components to access the game state and functions defined in the context.

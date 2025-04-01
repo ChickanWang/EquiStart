@@ -2,7 +2,7 @@
 import React, { useContext } from 'react';
 import { useRouter } from 'next/navigation';
 import { GameContext } from '../context/GameContext';
-import { gameScenes } from '../static/GameScenes';
+import { gameScenes } from '../config/GameScenes';
 import Dialogue from '../components/Dialogue';
 import Research from '../components/Research';
 import Scenario from '../components/Scenario';
