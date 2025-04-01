@@ -23,10 +23,27 @@ const Research = ({ title, content, background, onContinue }) => {
       }}
     >
       <Container maxWidth="md" sx={{ backgroundColor: "rgba(255,255,255,0.85)", borderRadius: 2, p: 4 }}>
-        <Typography variant="h3" fontWeight="bold" gutterBottom>
+        <Typography 
+          variant="h3" 
+          fontWeight="bold" 
+          gutterBottom
+          sx={{
+            fontSize: "2.5rem",
+            mb: 2,
+            fontFamily: "Inconsolata, monospace",
+            color: "#333",
+          }}
+        >
           {title}
         </Typography>
-        <Typography variant="body1" fontSize="1.2rem" sx={{ mb: 4 }}>
+        <Typography 
+          variant="body1" 
+          fontSize="1.2rem" 
+          sx={{ 
+            mb: 4,
+            fontFamily: "Inconsolata, monospace",
+          }}
+        >
           {content}
         </Typography>
         {onContinue && (

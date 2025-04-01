@@ -79,35 +79,30 @@ export default function GamePage() {
 
       {/* Home Button - Top Left */}
       <Box
+        onClick={handleHomeClick}
         sx={{
           position: "absolute",
-          top: 16,
-          left: 16,
+          top: 10,
+          left: 10,
           zIndex: 10,
+          cursor: "pointer",
+          transition: "transform 0.2s, box-shadow 0.2s",
+          "&:hover": {
+            transform: "scale(1.1)",
+            boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
+          },
         }}
       >
-        <Button
-          onClick={handleHomeClick}
+        <Box
+          component="img"
+          src="/sprites/home_button.png"
+          alt="Home"
           sx={{
-            fontFamily: "Inconsolata, monospace, cursive",
-            fontSize: "1rem", // bumped for legibility
-            backgroundColor: "#D38B56",
-            color: "black",
-            border: "4px solid black",
-            borderRadius: '10px',
-            px: 3,
-            py: 2,
-            textTransform: "none",
-            "&:hover": {
-              transform: "scale(1.1)",
-              boxShadow: "0 8px 12px rgba(0,0,0,0.2)",
-            },
+            height: "100px",
+            objectFit: "contain",
+            width: "auto",
           }}
-        >
-          HOME
-        </Button>
-
-
+        />
       </Box>
 
       {/* Stats Panel - Top Right */}

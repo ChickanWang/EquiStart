@@ -27,7 +27,7 @@ const Scenario = ({
         onClick={() => setState(research)}
         sx={{
           position: "fixed",
-          top: "9vh",
+          bottom: "45vh",
           left: "10px",
           height: "20vh",
           zIndex: 2,
