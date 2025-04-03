@@ -14,6 +14,13 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
     diversity: 1.1,
   };
 
+  const metricsLabels = [
+    "Employee Satisfaction",
+    "Profitability",
+    "Public Perception",
+    "Diversity",
+  ];
+
   // Calculate weighted overall company score
   const totalScore = Object.keys(metrics).reduce((acc, key) => {
     const multiplier = multipliers[key] || 1;
@@ -101,7 +108,7 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
 
         {/* Metrics Flow with numbers and bars (similar to Stats component) */}
         <Box sx={{ mt: 4, textAlign: "left" }}>
-          {Object.entries(metrics).map(([key, value]) => (
+          {Object.entries(metrics).map(([key, value], index) => (
             <Box key={key} sx={{ mb: 2 }}>
               <Typography
                 variant="body2"
@@ -111,7 +118,7 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
                   color: "#ffcc66",
                 }}
               >
-                {key.toUpperCase()}: {value}
+                {metricsLabels[index]}: {value}
               </Typography>
               <Box
                 sx={{
