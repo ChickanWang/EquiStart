@@ -26,5 +26,5 @@ Stats
 8. Research Component
 
 ### Left TODO
-5. HomePage Component (add a navbar... who are the group members! FAQ! if time)
-6. Coming up with Scenarios and Deep Research for each one (!!!!)
+1. HomePage Component (add a navbar... who are the group members! FAQ! if time)
+2. Coming up with Scenarios and Deep Research for each one (!!!!)
