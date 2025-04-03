@@ -18,7 +18,7 @@ const metricsStarting = {
 export const GameProvider = ({ children }) => {
   const [gameState, setGameState] = useState("dialogue1");
 
-  const [metrics, setMetrics] = useState();
+  const [metrics, setMetrics] = useState(metricsStarting);
 
   const [previousMetrics, setPreviousMetrics] = useState(metrics); // ← NEW
 
