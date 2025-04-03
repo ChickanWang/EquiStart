@@ -1,6 +1,15 @@
 "use client";
-import React from 'react';
-import { Box, Button, Card, CardMedia, CardActionArea, Typography, ButtonGroupContext, ButtonGroupButtonContext } from '@mui/material';
+import React from "react";
+import {
+  Box,
+  Button,
+  Card,
+  CardMedia,
+  CardActionArea,
+  Typography,
+  ButtonGroupContext,
+  ButtonGroupButtonContext,
+} from "@mui/material";
 
 const Scenario = ({
   title,
@@ -14,15 +23,17 @@ const Scenario = ({
   setState,
 }) => {
   return (
-    <div style={{
-      backgroundImage: `url(${background})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center',
-      backgroundAttachment: 'fixed',
-      backgroundSize: 'cover',
-      minHeight: '100vh',
-      width: '100%',
-    }}>
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+        backgroundSize: "cover",
+        minHeight: "100vh",
+        width: "100%",
+      }}
+    >
       <Box
         onClick={() => setState(research)}
         sx={{
@@ -76,7 +87,7 @@ const Scenario = ({
         }}
       >
         <Box
-          sx= {{
+          sx={{
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -86,7 +97,7 @@ const Scenario = ({
             borderBottom: "4px solid #ffcc00",
           }}
         >
-          <Typography 
+          <Typography
             variant="h5"
             fontWeight="bold"
             color="#ffcc00"
@@ -100,13 +111,14 @@ const Scenario = ({
           >
             {title}
           </Typography>
-          <div 
-            sx={{ 
-              display: 'flex',
-              alignItems: 'center',
-              mb: 4 
-            }}>
-            <Typography 
+          <div
+            sx={{
+              display: "flex",
+              alignItems: "center",
+              mb: 4,
+            }}
+          >
+            <Typography
               variant="body1"
               sx={{
                 fontSize: "0.8rem",

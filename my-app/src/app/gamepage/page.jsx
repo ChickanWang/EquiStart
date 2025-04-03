@@ -6,17 +6,17 @@
 */
 
 "use client";
-import React, { useContext, useEffect } from 'react';
-import { useRouter } from 'next/navigation';
-import { GameContext } from '../context/GameContext';
-import { gameScenes } from '../config/GameScenes';
-import Dialogue from '../components/Dialogue';
-import Research from '../components/Research';
-import Scenario from '../components/Scenario';
-import FundingRound from '../components/FundingRound';
-import FinalResults from '../components/FinalResults';
-import StatsComponent from '../components/Stats';
-import { Box } from '@mui/material';
+import React, { useContext, useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { GameContext } from "../context/GameContext";
+import { gameScenes } from "../config/GameScenes";
+import Dialogue from "../components/Dialogue";
+import Research from "../components/Research";
+import Scenario from "../components/Scenario";
+import FundingRound from "../components/FundingRound";
+import FinalResults from "../components/FinalResults";
+import StatsComponent from "../components/Stats";
+import { Box } from "@mui/material";
 
 /* 
   Function to get a random scenario key from the game scenes.
@@ -24,19 +24,18 @@ import { Box } from '@mui/material';
   will be handled here, based on the number of seen scenes.
 */
 export function handleNextState(scenes, seenScenes, setSeenScenes) {
-
   if (seenScenes.size >= 6) {
     // If 6 or more scenes have been seen, end the game
     return "finalResults";
-  }
-  else if (seenScenes.size % 2 == 0 && seenScenes.size > 0) {
+  } else if (seenScenes.size % 2 == 0 && seenScenes.size > 0) {
     // Move to a funding round every 2 scenes
     return "fundingRound";
   }
 
   // Otherwise, get a random scene
-  const keys = Object.keys(scenes)
-    .filter(key => scenes[key].type === 'scenario' && !seenScenes.has(key));
+  const keys = Object.keys(scenes).filter(
+    (key) => scenes[key].type === "scenario" && !seenScenes.has(key)
+  );
 
   const randomScene = keys[Math.floor(Math.random() * keys.length)];
   setSeenScenes((prev) => new Set(prev).add(randomScene));
@@ -47,14 +46,21 @@ export function handleNextState(scenes, seenScenes, setSeenScenes) {
 
 // Main GamePage component
 export default function GamePage() {
-  const { gameState, setGameState, metrics, updateMetric, seenScenes, setSeenScenes } = useContext(GameContext);
+  const {
+    gameState,
+    setGameState,
+    metrics,
+    updateMetric,
+    seenScenes,
+    setSeenScenes,
+  } = useContext(GameContext);
   const router = useRouter();
   const scene = gameScenes[gameState];
 
   useEffect(() => {
-    console.log(gameState)
+    console.log(gameState);
     if (gameState === "nextState") {
-      console.log("HELLOOOO")
+      console.log("HELLOOOO");
       setGameState(handleNextState(gameScenes, seenScenes, setSeenScenes));
     }
   }, [gameState, seenScenes]);
@@ -65,31 +71,34 @@ export default function GamePage() {
   };
 
   const handleChoice = (choice) => {
-    updateMetric("employeeSatisfaction", metrics.employeeSatisfaction + choice.effect);
+    updateMetric(
+      "employeeSatisfaction",
+      metrics.employeeSatisfaction + choice.effect
+    );
     setGameState("dialogue" + String(seenScenes.size + 1));
     const metricKeys = [
       "employeeSatisfaction",
       "profitability",
-      "employeeRetention",
-      "investorSatisfaction",
       "publicPerception",
-      "companyCash",
-      "DEIIndex",
-      // optionally add "employeeEngagement" if needed
+      "diversity",
     ];
-  
+
     choice.effect.forEach((change, index) => {
       const metric = metricKeys[index];
       if (metric) {
         updateMetric(metric, metrics[metric] + change);
       }
     });
-  
+
     setGameState(choice.nextState);
   };
 
   const handleHomeClick = () => {
-    if (window.confirm("Are you sure you want to return to the home page? Your progress may be lost if you refresh.")) {
+    if (
+      window.confirm(
+        "Are you sure you want to return to the home page? Your progress may be lost if you refresh."
+      )
+    ) {
       router.push("/");
     }
   };
@@ -111,7 +120,9 @@ export default function GamePage() {
           />
         );
       case "scenario":
-        return <Scenario {...props} onChoice={handleChoice} setState={setState} />;
+        return (
+          <Scenario {...props} onChoice={handleChoice} setState={setState} />
+        );
       case "research":
         return (
           <Research
@@ -125,13 +136,9 @@ export default function GamePage() {
           />
         );
       case "fundingRound":
-        return (
-          <FundingRound />
-        );
+        return <FundingRound />;
       case "finalResults":
-        return (
-          <FinalResults />
-        );
+        return <FinalResults />;
       default:
         return <div>Unknown state</div>;
     }

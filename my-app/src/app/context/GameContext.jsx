@@ -4,7 +4,7 @@
 */
 
 "use client";
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState } from "react";
 
 export const GameContext = createContext();
 
@@ -14,12 +14,8 @@ export const GameProvider = ({ children }) => {
   const [metrics, setMetrics] = useState({
     employeeSatisfaction: 50,
     profitability: 50,
-    employeeRetention: 50,
-    investorSatisfaction: 50,
     publicPerception: 50,
-    companyCash: 50,
-    DEIIndex: 50,
-    employeeEngagement: 50,
+    diversity: 50,
   });
 
   const [previousMetrics, setPreviousMetrics] = useState(metrics); // ← NEW
@@ -27,8 +23,8 @@ export const GameProvider = ({ children }) => {
   const [seenScenes, setSeenScenes] = useState(new Set());
 
   const updateMetric = (key, value) => {
-    setPreviousMetrics(prev => ({ ...prev, [key]: metrics[key] })); // Save current before update
-    setMetrics(prev => ({ ...prev, [key]: value }));
+    setPreviousMetrics((prev) => ({ ...prev, [key]: metrics[key] })); // Save current before update
+    setMetrics((prev) => ({ ...prev, [key]: value }));
   };
 
   return (

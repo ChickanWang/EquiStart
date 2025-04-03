@@ -10,12 +10,8 @@ import { Box, Typography, Tooltip } from "@mui/material";
 const statColors = {
   employeeSatisfaction: "#4caf50",
   profitability: "#ff9800",
-  employeeRetention: "#2196f3",
-  investorSatisfaction: "#9c27b0",
   publicPerception: "#f44336",
-  companyCash: "#ffd700",
-  DEIIndex: "#673ab7",
-  employeeEngagement: "#03a9f4",
+  diversity: "#673ab7",
 };
 
 const pixelFont = "'Press Start 2P', Inconsolata, monospace"; // Load in your app
@@ -66,7 +62,8 @@ const StatsComponent = () => {
       {Object.entries(metrics).map(([key, value]) => {
         const previous = previousMetrics[key] ?? value;
         const diff = value - previous;
-        const diffText = diff > 0 ? `+${Math.round(diff)}` : `${Math.round(diff)}`;
+        const diffText =
+          diff > 0 ? `+${Math.round(diff)}` : `${Math.round(diff)}`;
         const tooltipText = diff === 0 ? "No change" : `Change: ${diffText}`;
         const barWidth = `${Math.min(100, Math.max(0, value))}%`;
 
@@ -81,7 +78,10 @@ const StatsComponent = () => {
                 textShadow: "1px 1px 0 #000",
               }}
             >
-              {key.replace(/([A-Z])/g, " $1").trim().toUpperCase()}
+              {key
+                .replace(/([A-Z])/g, " $1")
+                .trim()
+                .toUpperCase()}
             </Typography>
             <Tooltip title={tooltipText} arrow placement="top">
               <Box
