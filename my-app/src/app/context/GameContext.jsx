@@ -23,9 +23,28 @@ export const GameProvider = ({ children }) => {
   const [seenScenes, setSeenScenes] = useState(new Set());
   const [prevState, setPrevState] = useState("");
 
+  // NEW: Choices History State & Adder Function
+  const [choicesHistory, setChoicesHistory] = useState([]);
+  const addChoice = (choiceObj) => {
+    setChoicesHistory((prev) => [...prev, choiceObj]);
+  };
+
   const updateMetric = (key, value) => {
     setPreviousMetrics((prev) => ({ ...prev, [key]: metrics[key] })); // Save current before update
     setMetrics((prev) => ({ ...prev, [key]: value }));
+  };
+
+  const restartGame = () => {
+    setGameState("dialogue1");
+    setMetrics({
+      employeeSatisfaction: 50,
+      profitability: 50,
+      publicPerception: 50,
+      diversity: 50,
+    });
+    setSeenScenes(new Set());
+    setPrevState("");
+    setChoicesHistory([]);
   };
 
   return (
@@ -40,6 +59,9 @@ export const GameProvider = ({ children }) => {
         setSeenScenes,
         prevState,
         setPrevState,
+        choicesHistory, // added to provider
+        addChoice, // added to provider
+        restartGame,
       }}
     >
       {children}

@@ -21,6 +21,9 @@ const StatsComponent = () => {
   const [diffs, setDiffs] = useState({});
   const previousMetricsRef = useRef({});
 
+  // New state flag to control visibility
+  const [visible, setVisible] = useState(true);
+
   useEffect(() => {
     const prev = previousMetricsRef.current;
     const newDiffs = {};
@@ -32,6 +35,23 @@ const StatsComponent = () => {
     setDiffs(newDiffs);
     previousMetricsRef.current = { ...metrics };
   }, [metrics]);
+
+  // Set up event listeners to hide or show the stats panel
+  useEffect(() => {
+    const hideHandler = () => setVisible(false);
+    const showHandler = () => setVisible(true);
+
+    window.addEventListener("hideStats", hideHandler);
+    window.addEventListener("showStats", showHandler);
+
+    // Cleanup
+    return () => {
+      window.removeEventListener("hideStats", hideHandler);
+      window.removeEventListener("showStats", showHandler);
+    };
+  }, []);
+
+  if (!visible) return null;
 
   return (
     <Box

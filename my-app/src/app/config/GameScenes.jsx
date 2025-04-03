@@ -232,4 +232,39 @@ export const gameScenes = {
       dialogueData: ["The game is over! Thank you for playing."],
     },
   },
+
+  // Scenario 2: Environmental Responsibility
+  yeer: {
+    type: "scenario",
+    props: {
+      title: "Environmental Responsibility",
+      text: `Your company is considering a new product line that could significantly increase profits.
+        However, it would also lead to increased carbon emissions and waste. Some employees advocate for
+        a more sustainable approach, while others argue for the financial benefits. How do you proceed?`,
+      background: "/backgrounds/office_background_2.jpg",
+      research: "environmental_research",
+      sprite: "/sprites/ceo.png",
+      position: "left",
+      choices: [
+        {
+          label: "Prioritize Sustainability",
+          text: "Invest in eco-friendly materials and processes, even if it means lower profits.",
+          effect: [10, 5, 15, 20, -5],
+          nextState: "environmental_dialogue_1",
+        },
+        {
+          label: "Maintain Current Practices",
+          text: "Continue with the current product line for maximum profit.",
+          effect: [10, 10, -10, -5, -10],
+          nextState: "environmental_dialogue_2",
+        },
+        {
+          label: "Prioritize Profitability",
+          text: "Focus on maximizing profits, even if it harms the environment.",
+          effect: [5, 5, 5, 10, 0],
+          nextState: "environmental_dialogue_3",
+        },
+      ],
+    },
+  },
 };

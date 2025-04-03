@@ -164,7 +164,7 @@ const Scenario = ({
               }}
             >
               <CardActionArea
-                onClick={() => onChoice(choice)}
+                onClick={() => onChoice(title, choice)}
                 sx={{ width: "100%", height: "100%" }}
               >
                 <Typography
