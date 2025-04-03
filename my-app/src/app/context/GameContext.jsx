@@ -8,15 +8,17 @@ import React, { createContext, useState } from "react";
 
 export const GameContext = createContext();
 
+const metricsStarting = {
+  employeeSatisfaction: 50,
+  profitability: 50,
+  publicPerception: 50,
+  diversity: 50,
+};
+
 export const GameProvider = ({ children }) => {
   const [gameState, setGameState] = useState("dialogue1");
 
-  const [metrics, setMetrics] = useState({
-    employeeSatisfaction: 50,
-    profitability: 50,
-    publicPerception: 50,
-    diversity: 50,
-  });
+  const [metrics, setMetrics] = useState();
 
   const [previousMetrics, setPreviousMetrics] = useState(metrics); // ← NEW
 
@@ -36,15 +38,11 @@ export const GameProvider = ({ children }) => {
 
   const restartGame = () => {
     setGameState("dialogue1");
-    setMetrics({
-      employeeSatisfaction: 50,
-      profitability: 50,
-      publicPerception: 50,
-      diversity: 50,
-    });
+    setMetrics(metricsStarting);
     setSeenScenes(new Set());
     setPrevState("");
     setChoicesHistory([]);
+    setPreviousMetrics(metricsStarting);
   };
 
   return (
