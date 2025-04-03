@@ -20,11 +20,11 @@ Stats
 2. Stats Component
 3. Dialogue Component
 4. General Game State Logic (intro -> 2 scenarios -> funding round -> 2 scenarios -> funding round -> 2 scenarios -> final score)
+5. Implement scoring state (money received from funding rounds)
+6. Funding Round Component
+7. Final Results Component
+8. Research Component
 
 ### Left TODO
-1. Implement scoring state (money received from funding rounds)
-2. Funding Round Component
-3. Final Results Component
-4. Research Component
 5. HomePage Component (add a navbar... who are the group members! FAQ! if time)
 6. Coming up with Scenarios and Deep Research for each one (!!!!)
