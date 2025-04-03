@@ -23,14 +23,28 @@ import { Box } from "@mui/material";
   The logic to handle moving the game toward funding rounds and ending the game
   will be handled here, based on the number of seen scenes.
 */
-export function handleNextState(scenes, seenScenes, setSeenScenes) {
+export function handleNextState(
+  scenes,
+  seenScenes,
+  setSeenScenes,
+  prevState,
+  setPrevState
+) {
+  console.log("yeer", prevState);
   if (seenScenes.size >= 6) {
     // If 6 or more scenes have been seen, end the game
     return "finalResults";
-  } else if (seenScenes.size % 2 == 0 && seenScenes.size > 0) {
+  } else if (
+    seenScenes.size % 2 == 0 &&
+    seenScenes.size > 0 &&
+    prevState !== "fundingRound"
+  ) {
     // Move to a funding round every 2 scenes
+    setPrevState("fundingRound");
     return "fundingRound";
   }
+
+  setPrevState("scenario");
 
   // Otherwise, get a random scene
   const keys = Object.keys(scenes).filter(
@@ -53,6 +67,8 @@ export default function GamePage() {
     updateMetric,
     seenScenes,
     setSeenScenes,
+    prevState,
+    setPrevState,
   } = useContext(GameContext);
   const router = useRouter();
   const scene = gameScenes[gameState];
@@ -61,7 +77,15 @@ export default function GamePage() {
     console.log(gameState);
     if (gameState === "nextState") {
       console.log("HELLOOOO");
-      setGameState(handleNextState(gameScenes, seenScenes, setSeenScenes));
+      setGameState(
+        handleNextState(
+          gameScenes,
+          seenScenes,
+          setSeenScenes,
+          prevState,
+          setPrevState
+        )
+      );
     }
   }, [gameState, seenScenes]);
 
@@ -136,7 +160,7 @@ export default function GamePage() {
           />
         );
       case "fundingRound":
-        return <FundingRound />;
+        return <FundingRound setState={setState} />;
       case "finalResults":
         return <FinalResults />;
       default:
