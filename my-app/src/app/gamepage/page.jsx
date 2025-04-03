@@ -31,7 +31,7 @@ export function handleNextState(
   setPrevState
 ) {
   console.log("yeer", prevState);
-  if (seenScenes.size >= 6) {
+  if (seenScenes.size >= 3) {
     // If 6 or more scenes have been seen, end the game
     return "finalResults";
   } else if (
@@ -69,6 +69,9 @@ export default function GamePage() {
     setSeenScenes,
     prevState,
     setPrevState,
+    choicesHistory,
+    addChoice,
+    restartGame,
   } = useContext(GameContext);
   const router = useRouter();
   const scene = gameScenes[gameState];
@@ -94,7 +97,17 @@ export default function GamePage() {
     setGameState(state);
   };
 
-  const handleChoice = (choice) => {
+  // Updated handleChoice to include questionTitle and record choice in history
+  const handleChoice = (questionTitle, choice) => {
+    // Record the choice in the new choicesHistory state
+    addChoice({
+      questionTitle,
+      label: choice.label,
+      text: choice.text,
+      effect: choice.effect,
+      nextState: choice.nextState,
+    });
+
     updateMetric(
       "employeeSatisfaction",
       metrics.employeeSatisfaction + choice.effect
@@ -123,6 +136,7 @@ export default function GamePage() {
         "Are you sure you want to return to the home page? Your progress may be lost if you refresh."
       )
     ) {
+      restartGame();
       router.push("/");
     }
   };
@@ -162,7 +176,12 @@ export default function GamePage() {
       case "fundingRound":
         return <FundingRound setState={setState} />;
       case "finalResults":
-        return <FinalResults />;
+        return (
+          <FinalResults
+            choicesHistory={choicesHistory}
+            restartGame={restartGame}
+          />
+        );
       default:
         return <div>Unknown state</div>;
     }
