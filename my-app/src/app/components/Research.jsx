@@ -102,14 +102,23 @@ const Research = ({ title, content, sources, background, sprite, onContinue }) =
                   <CardContent
                     sx={{
                       color: "#222",
-                      fontFamily: "Georgia, serif",
-                      textAlign: "left",
+                      fontFamily: "Georgia, serif", 
                     }}
                   >
-                    <Typography variant="h6" sx={{ mb: 1 }}>
+                    <Typography variant="h6" sx={{ fontFamily: "Georgia, serif", color: "#333", mb: 4  }}>
                       {source.title}
                     </Typography>
-                    <Typography variant="body2">{source.body}</Typography>
+                    <Typography 
+                      variant="body2"
+                      sx={{
+                        color: "#222",
+                        fontFamily: "Georgia, serif", 
+                        color: "#333", 
+                        mb: 4,
+                        textAlign: "left",
+                      }}>
+                        {source.body}
+                      </Typography>
                   </CardContent>
                 </Box>
               </CardActionArea>
