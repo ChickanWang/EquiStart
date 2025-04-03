@@ -101,8 +101,53 @@ export const gameScenes = {
     type: "research",
     props: {
       title: "Inclusive Hiring Practices",
-      content:
-        "Research shows that diverse teams perform better, innovate more, and reflect broader perspectives...",
+      content: `Research shows that diverse teams perform better, 
+          innovate more, and reflect broader perspectives. 
+          Diversity in the workplace is linked to increased profitability, 
+          better decision-making, and higher employee satisfaction. 
+          Teams with varied backgrounds are more likely to approach problems creatively, 
+          avoid groupthink, and connect with a wider customer base. Studies from McKinsey 
+          and Harvard Business Review consistently show that inclusive companies outperform 
+          their less diverse peers in nearly every metric, from revenue growth to employee retention. 
+          Emphasizing diversity isn't just a moral imperative—it's a competitive advantage in a global market.`,
+
+      sources: [
+        {
+          title: "The Benefits of Diversity in the Workplace",
+          body: `Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds. Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds.Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds.Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds.`,
+          url: "https://www.example.com/research1",
+          img: "/research1.jpg",
+        },
+        {
+          title: "AI in Hiring: Pros and Cons",
+          body: `AI can help streamline the hiring process, but it can also introduce bias if not used carefully. 
+            Algorithms trained on biased data may unintentionally favor certain groups, leading to unfair outcomes. 
+            However, with proper design and oversight, AI can support more objective evaluations 
+            and reduce manual bottlenecks.`,
+          url: "https://www.example.com/research2",
+          img: "/research2.jpg",
+        },
+        {
+          title: "The Importance of Human Oversight in AI Hiring",
+          body: `While AI can assist in hiring, human judgment is crucial to ensure fairness and inclusivity. 
+          Oversight helps prevent algorithmic bias and ensures that candidate evaluations are context-aware. 
+          Combining AI efficiency with human insight leads to more balanced and ethical hiring decisions.`,
+          url: "https://www.example.com/research3",
+          img: "/research3.jpg",
+        }
+      ],      
       background: "/backgrounds/library.jpg",
       sprite: "/sprites/back_to_work.png",
       nextState: "ethical_hiring_scenario",
@@ -179,12 +224,57 @@ export const gameScenes = {
   environmental_research: {
     type: "research",
     props: {
-      title: "Sustainable Business Practices",
-      content:
-        "Research indicates that sustainable practices can lead to long-term profitability and brand loyalty...",
       background: "/backgrounds/library.jpg",
       sprite: "/sprites/back_to_work.png",
       nextState: "environment",
+      title: "Sustainable Business Practices",
+      content: `Research shows that diverse teams perform better, 
+          innovate more, and reflect broader perspectives. 
+          Diversity in the workplace is linked to increased profitability, 
+          better decision-making, and higher employee satisfaction. 
+          Teams with varied backgrounds are more likely to approach problems creatively, 
+          avoid groupthink, and connect with a wider customer base. Studies from McKinsey 
+          and Harvard Business Review consistently show that inclusive companies outperform 
+          their less diverse peers in nearly every metric, from revenue growth to employee retention. 
+          Emphasizing diversity isn't just a moral imperative—it's a competitive advantage in a global market.`,
+
+      sources: [
+        {
+          title: "The Benefits of Diversity in the Workplace",
+          body: `Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds. Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds.Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds.Research shows that diverse teams perform better, innovate more, and reflect broader perspectives. 
+            Organizations that prioritize diversity tend to have improved collaboration, stronger team dynamics, 
+            and better problem-solving outcomes. Diversity also enhances company reputation and attracts top 
+            talent from different backgrounds.`,
+          url: "https://www.example.com/research1",
+          img: "/research1.jpg",
+        },
+        {
+          title: "AI in Hiring: Pros and Cons",
+          body: `AI can help streamline the hiring process, but it can also introduce bias if not used carefully. 
+            Algorithms trained on biased data may unintentionally favor certain groups, leading to unfair outcomes. 
+            However, with proper design and oversight, AI can support more objective evaluations 
+            and reduce manual bottlenecks.`,
+          url: "https://www.example.com/research2",
+          img: "/research2.jpg",
+        },
+        {
+          title: "The Importance of Human Oversight in AI Hiring",
+          body: `While AI can assist in hiring, human judgment is crucial to ensure fairness and inclusivity. 
+          Oversight helps prevent algorithmic bias and ensures that candidate evaluations are context-aware. 
+          Combining AI efficiency with human insight leads to more balanced and ethical hiring decisions.`,
+          url: "https://www.example.com/research3",
+          img: "/research3.jpg",
+        }
+      ], 
     },
   },
   environmental_dialogue_1: {

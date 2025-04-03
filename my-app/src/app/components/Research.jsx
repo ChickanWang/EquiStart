@@ -1,39 +1,26 @@
-"use client";
-import React, { useState } from "react";
-import {
-  Box,
-  Typography,
-  MenuItem,
-  FormControl,
-  Select,
-  InputLabel,
-} from "@mui/material";
+import React from "react";
+import { Box, Typography, Card, CardMedia, CardContent, CardActionArea, Link } from "@mui/material";
 
-const Research = ({ title, content, background, sprite, onContinue }) => {
-  const [case1, setCase1] = useState("");
-  const [case2, setCase2] = useState("");
-  const [case3, setCase3] = useState("");
-
+const Research = ({ title, content, sources, background, sprite, onContinue }) => {
+  const currentDate = new Date().toLocaleDateString();
   return (
     <Box
       sx={{
         width: "100%",
-        height: "100vh",
+        minHeight: "100vh",
         backgroundImage: `url(${background || "/backgrounds/pixel_library.jpg"})`,
         backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
+        p: 2,
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        fontFamily: "'Press Start 2P', Inconsolata, monospace",
-        p: 2,
         position: "relative",
+        fontFamily: "'Press Start 2P', Inconsolata, monospace",
       }}
     >
-      {/* Sprite Character */}
       {sprite && (
-          <Box
+        <Box
           onClick={onContinue}
           sx={{
             position: "fixed",
@@ -43,101 +30,92 @@ const Research = ({ title, content, background, sprite, onContinue }) => {
             height: "18vh",
             zIndex: 3,
             cursor: "pointer",
-            transition: "transform 0.2s, box-shadow 0.2s",
-            "&:hover": {
-              transform: "translateY(-50%) scale(1.1)",
-            },
+            transition: "transform 0.2s",
+            "&:hover": { transform: "translateY(-50%) scale(1.1)" },
           }}
         >
           <Box
             component="img"
             src={sprite}
             alt="Return to Scenario"
-            sx={{
-              height: "100%",
-              width: "auto",
-              objectFit: "contain",
-            }}
+            sx={{ height: "100%", width: "auto", objectFit: "contain" }}
           />
         </Box>
       )}
 
-      {/* Content Box */}
       <Box
         sx={{
-          backgroundColor: "#000",
-          border: "4px solid #8B4513",
+          backgroundColor: "#ede5d9",
+          border: "1px solid #ccc",
           padding: "24px",
-          maxWidth: "700px",
-          width: "100%",
+          maxWidth: "900px",
+          margin: "auto",
+          overflowY: "auto",
+          height: "80vh",
           textAlign: "center",
-          boxShadow: "0 0 0 4px #000",
+          boxShadow: "0 0 10px rgba(0,0,0,0.1)",
           zIndex: 3,
+          border: "5px solid black",
         }}
       >
-        <Typography
-          variant="h4"
-          sx={{
-            fontSize: "1rem",
-            color: "#ffcc66",
-            mb: 2,
-            textShadow: "2px 2px 0 #000",
-          }}
-        >
-          {title}
-        </Typography>
-
-        <Typography
-          variant="body1"
-          sx={{
-            fontSize: "0.75rem",
-            color: "#ffcc66",
-            whiteSpace: "pre-line",
-            textShadow: "1px 1px 0 #000",
-            mb: 4,
-          }}
-        >
-          {content}
-        </Typography>
-
-        {/* Dropdowns */}
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
-          {[1, 2, 3].map((num) => (
-            <FormControl
-              key={num}
-              fullWidth
-              variant="filled"
+        <header>
+          <Typography variant="h2" sx={{ fontFamily: "Georgia, serif", color: "#222", mb: 0 }}>
+            The Diversity Gazette
+          </Typography>
+          <Typography variant="subtitle1" sx={{ fontFamily: "Georgia, serif", color: "#666", mb: 4 }}>
+            {currentDate}
+          </Typography>
+        </header>
+        <article>
+          <Typography variant="h4" sx={{ fontFamily: "Georgia, serif", color: "#222", mb: 2 }}>
+            {title}
+          </Typography>
+          <Typography variant="body1" sx={{ fontFamily: "Georgia, serif", color: "#333", mb: 4 }}>
+            {content}
+          </Typography>
+        </article>
+        <section style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+          {sources.map((source, idx) => (
+            <Card
+              key={idx}
               sx={{
-                backgroundColor: "#222",
-                border: "2px solid #8B4513",
-                "& .MuiInputBase-root": {
-                  color: "#ffcc66",
-                  fontFamily: "'Press Start 2P', Inconsolata, monospace",
-                  fontSize: "0.65rem",
-                },
-                "& .MuiInputLabel-root": {
-                  color: "#ffcc66",
-                  fontSize: "0.65rem",
-                  fontFamily: "'Press Start 2P', Inconsolata, monospace",
-                },
-                "& .MuiSvgIcon-root": {
-                  color: "#ffcc66",
-                },
+                backgroundColor: "#fff",
+                border: "1px solid #ccc",
               }}
             >
-              <InputLabel>{`Case Study ${num}`}</InputLabel>
-              <Select
-                value={num === 1 ? case1 : num === 2 ? case2 : case3}
-                onChange={(e) => {
-                  if (num === 1) setCase1(e.target.value);
-                  else if (num === 2) setCase2(e.target.value);
-                  else setCase3(e.target.value);
-                }}
-              >
-              </Select>
-            </FormControl>
+              <CardActionArea component={Link} href={source.url} target="_blank" rel="noopener">
+                <Box sx={{ display: "flex", flexDirection: "row" }}>
+                  <CardMedia
+                    component="img"
+                    image={source.img}
+                    alt={source.title}
+                    sx={{ 
+                      maxWidth: "150px",
+                      objectFit: "cover",
+                      borderRadius: "4px 0 0 4px",
+                      borderRight: "1px solid #ccc",
+                      boxShadow: "0 0 5px rgba(0,0,0,0.1)",
+                      transition: "transform 0.2s",
+                      "&:hover": { transform: "scale(1.05)" },
+                    }}
+                  />
+                  <CardContent
+                    sx={{
+                      color: "#222",
+                      fontFamily: "Georgia, serif",
+                      textAlign: "left",
+                    }}
+                  >
+                    <Typography variant="h6" sx={{ mb: 1 }}>
+                      {source.title}
+                    </Typography>
+                    <Typography variant="body2">{source.body}</Typography>
+                  </CardContent>
+                </Box>
+              </CardActionArea>
+            </Card>
           ))}
-        </Box>
+        </section>
       </Box>
     </Box>
   );
