@@ -4,6 +4,7 @@
 */
 "use client";
 import './globals.css';
+import { Analytics } from '@vercel/analytics/next';
 import { GameProvider } from './context/GameContext';
 
 export default function RootLayout({ children }) {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <GameProvider>{children}</GameProvider>
+        <Analytics />
       </body>
     </html>
   );
