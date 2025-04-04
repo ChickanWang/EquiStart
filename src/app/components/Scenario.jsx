@@ -10,7 +10,7 @@ import {
   ButtonGroupContext,
   ButtonGroupButtonContext,
 } from "@mui/material";
-import parse from 'html-react-parser';
+import parse from "html-react-parser";
 
 const Scenario = ({
   title,
@@ -162,7 +162,7 @@ const Scenario = ({
                 borderStyle: "solid",
                 borderWidth: "2px",
                 borderColor: "#ffcc00",
-                padding: 0
+                padding: 0,
               }}
             >
               <CardActionArea
