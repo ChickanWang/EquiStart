@@ -51,6 +51,7 @@ export const gameScenes = {
         "You are the CEO of a budding background check screening company.",
         "Your clients are business owners and companies who rely on you to give back accurate information on the people they ask you to check.",
         "Your goal is to grow your company by balancing financial gains, internal employee satisfaction, and external public opinion.",
+        "Be careful to not let your stats drop too low or your company may suffer the consequences!",
         "Are you ready to get started?",
       ],
       background: "/backgrounds/office_background.jpg",
@@ -78,7 +79,7 @@ export const gameScenes = {
         {
           label: "Use an AI Resume Screening Tool",
           text: "Use the tool to save on screening time and costs.",
-          effect: [-50, 10, -5, -15],
+          effect: [-10, 10, -5, -15],
           nextState: "ethical_hiring_scenario_dialogue_1",
         },
         {
@@ -432,19 +433,6 @@ export const gameScenes = {
     },
   },
 
-  dialogue2: {
-    type: "dialogue",
-    props: {
-      dialogueData: ["You've selected a strategy. Let's see how it plays out!"],
-    },
-  },
-  dialogue3: {
-    type: "dialogue",
-    props: {
-      dialogueData: ["The game is over! Thank you for playing."],
-    },
-  },
-
   // Scenario 4: Right to be Forgotten
   right_to_be_forgotten_scenario: {
     type: "scenario",
@@ -597,7 +585,7 @@ export const gameScenes = {
           label: "Engage in Greenwashing",
           text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
             our core, energy-intensive data infrastructure unchanged.`,
-          effect: [-10, 20, -30, -10],
+          effect: [-10, 20, -20, -10],
           nextState: "environmental_scenario_dialogue_3"
         }
       ]

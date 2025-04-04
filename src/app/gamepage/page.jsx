@@ -16,6 +16,7 @@ import Scenario from "../components/Scenario";
 import FundingRound from "../components/FundingRound";
 import FinalResults from "../components/FinalResults";
 import StatsComponent from "../components/Stats";
+import BackgroundMusic from "../components/BackgroundMusic";
 import { Box } from "@mui/material";
 
 /* 
@@ -77,6 +78,7 @@ export default function GamePage() {
     choicesHistory,
     addChoice,
     restartGame,
+    playOverlay,
   } = useContext(GameContext);
   const router = useRouter();
   const scene = gameScenes[gameState];
@@ -84,7 +86,6 @@ export default function GamePage() {
   useEffect(() => {
     console.log(gameState);
     if (gameState === "nextState") {
-      console.log("HELLOOOO");
       setGameState(
         handleNextState(
           gameScenes,
@@ -105,6 +106,7 @@ export default function GamePage() {
 
   // Updated handleChoice to include questionTitle and record choice in history
   const handleChoice = (questionTitle, choice) => {
+    playOverlay()
     // Record the choice in the new choicesHistory state
     addChoice({
       questionTitle,
@@ -202,6 +204,7 @@ export default function GamePage() {
         overflow: "hidden",
       }}
     >
+      <BackgroundMusic />
       {/* Render the current scene (fills entire area) */}
       {renderScene()}
 
