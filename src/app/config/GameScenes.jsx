@@ -322,9 +322,9 @@ export const gameScenes = {
         and pitching ideas of developing a whitebox AI system for the company to use rather than using other software. You 
         like the idea of knowing all the ins and outs of the technology you're using, but you're wary of the heavy 
         investments needed to implement this. What should you do?'`,
-      background: "/backgrounds/office_background.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       research: "efficiency_scenario_research",
-      sprite: "/sprites/ceo.png",
+      sprite: "/sprites/worker.png",
       choices: [
         {
           label: "Use Clearview AI",
@@ -684,7 +684,7 @@ export const gameScenes = {
       What decision will you support?`,
       background: "/backgrounds/office_background_2.jpg",
       research: "workplace_culture_scenario_research",
-      sprite: "/sprites/ceo.png",
+      sprite: "/sprites/worker.png",
       position: "left",
 
       choices: [
