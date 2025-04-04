@@ -25,6 +25,3 @@ Stats
 7. Final Results Component
 8. Research Component
 
-### Left TODO
-1. HomePage Component (add a navbar... who are the group members! FAQ! if time)
-2. Coming up with Scenarios and Deep Research for each one (!!!!)
