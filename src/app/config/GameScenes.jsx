@@ -577,4 +577,123 @@ export const gameScenes = {
       nextState: "nextState",
     },
   },
+  // Scenario 6: Workplace Culture
+  workplace_culture_scenario: {
+    type: "scenario",
+    props: {
+      title: "Workplace Culture Dilemma",
+      text: `As a fast-growing startup, you've built a reputation for innovation, speed, and accuracy.
+      Your team is lean, ambitious, and driven, but recently, internal discussions have surfaced concerns: female employees feel underrepresented in leadership and unsupported in their career growth.
+      Some executives believe leadership roles have been filled fairly, based on merit and availability.
+      Others point to subtle biases, informal networks, and a lack of structured development opportunities for women in the company.
+      Taking action could foster a more inclusive and equitable culture, but might also challenge current leadership norms and hiring processes.
+      Your team is exploring mentorship programs and other diversity intiatives.
+      What decision will you support?`,
+      background: "/backgrounds/office_background_2.jpg",
+      research: "workplace_culture_scenario_research",
+      sprite: "/sprites/ceo.png",
+      position: "left",
+
+      choices: [
+        {
+          label: "Invest in Gender Equity",
+          text: "Immediately invest in initiatives supporting women's career advancement and leadership training.",
+          effect: [15, 5, 20, 25],
+          nextState: "gender_equity_dialogue_1",
+        },
+        {
+          label: "Maintain Status Quo",
+          text: "Continue current hiring and promotion practices without addressing gender disparities.",
+          effect: [-10, 5, -15, -20],
+          nextState: "gender_equity_dialogue_2",
+        },
+        {
+          label: "Token Initiatives",
+          text: "Implement surface-level diversity efforts without addressing root issues.",
+          effect: [-5, 0, -10, -5],
+          nextState: "gender_equity_dialogue_3",
+        },
+      ],
+    },
+  },
+
+  workplace_culture_scenario_research: {
+    type: "research",
+    props: {
+      sources: [
+        {
+          title: "Why Gender Equity Matters",
+          body: `Research from McKinsey shows companies with more women in leadership see up to 47% higher returns on equity. Firms in the top 25% for gender diversity are also 27% more likely to outperform peers in profitability. Diverse leadership can improve problem-solving, communication, and innovation, fuelling stronger financial performance.`,
+          url: "https://www.mckinsey.com/featured-insights/diversity-and-inclusion",
+          img: "/sprites/human.png"
+        },
+        
+        
+        {
+          title: "Men Still Outnumber Women at Every Level",
+          body: "Despite efforts toward gender parity, men continue to outnumber women across all corporate levels. This disparity is most pronounced in senior leadership, where only about 1 in 5 C-suite executives is a woman, and just 1 in 25 is a woman of color. The primary cause is inequities in hiring and promotions, particularly at the first step up to manager.",
+          url: "https://leanin.org/women-in-the-workplace/2018/men-still-outnumber-women-at-every-level",
+          img: "/sprites/crack.png"
+        },         
+        {
+          title: "Walmart Settles Sex Discrimination Lawsuit",
+          body: "In 2023, Walmart agreed to pay $60,000 to settle a lawsuit alleging that the company refused to promote a female employee based on sex stereotypes about women with young children. The EEOC claimed this violated federal law by denying her equal opportunity for advancement.",
+          url: "https://www.eeoc.gov/newsroom/walmart-pay-60000-settle-eeoc-sex-discrimination-lawsuit",
+          img: "/sprites/ladder.png"
+        },
+        
+      ],
+      background: "/backgrounds/library.jpg",
+      sprite: "/sprites/back_to_work.png",
+      nextState: "workplace_culture_scenario",
+    },
+  },
+
+  gender_equity_dialogue_1: {
+    type: "dialogue",
+    props: {
+      dialogueData: [
+        "You launch a company-wide initiative to support women’s advancement into leadership roles.",
+        "New mentorship programs, transparent promotion criteria, and leadership training are introduced.",
+        "Some existing managers resist the changes, claiming it's unnecessary—but many employees feel heard and empowered.",
+        "Your efforts are praised on social media, and you're recognized by a diversity-focused publication.",
+        "As a result, employee satisfaction and public perception rise, even as short-term productivity dips during the transition.",
+      ],
+      background: "/backgrounds/office_day.jpg",
+      sprite: "/sprites/ceo.png",
+      nextState: "nextState",
+    },
+  },
+  
+  gender_equity_dialogue_2: {
+    type: "dialogue",
+    props: {
+      dialogueData: [
+        "You decide not to make any changes to your leadership development or hiring processes.",
+        "Some employees grow frustrated, feeling their concerns are being ignored.",
+        "Internal discussions intensify, and a few high-performing women begin to leave the company.",
+        "Glassdoor reviews reflect a growing sense of dissatisfaction, especially around equity and growth opportunities.",
+        "While operations continue smoothly, morale dips and your company’s reputation for inclusivity begins to erode.",
+      ],
+      background: "/backgrounds/office_day.jpg",
+      sprite: "/sprites/ceo.png",
+      nextState: "nextState",
+    },
+  },
+  
+  gender_equity_dialogue_3: {
+    type: "dialogue",
+    props: {
+      dialogueData: [
+        "You roll out minimal diversity programs—like a single workshop or a token leadership talk—but don’t change core systems.",
+        "Internally, many see it as a PR move rather than real change, and trust in leadership weakens.",
+        "A few women speak out anonymously online, drawing attention to the gap between company image and internal reality.",
+        "Public backlash is moderate, but steady, and your company is no longer seen as progressive or inclusive.",
+        "You avoid major short-term costs, but diversity growth stalls and internal dissatisfaction grows quietly.",
+      ],
+      background: "/backgrounds/office_day.jpg",
+      sprite: "/sprites/ceo.png",
+      nextState: "nextState",
+    },
+  },  
 };
