@@ -481,13 +481,13 @@ export const gameScenes = {
         },
         {
           label: "Deny All Requests",
-          text: "Retain data for full report integrity.",
+          text: "Reject deletion requests, prioritizing data retention for business analytics and client accuracy.",
           effect: [15, 10, -15, -10],
           nextState: "right_to_be_forgotten_dialogue_2",
         },
         {
           label: "Allow but Complicate Deletion",
-          text: "Slow down the deletion process to retain most data.",
+          text: "Allow data deletion in principle but intentionally complicate the process to reduce the volume of successful requests.",
           effect: [5, 5, -5, -15],
           nextState: "right_to_be_forgotten_dialogue_3",
         },
@@ -501,22 +501,27 @@ export const gameScenes = {
       sources: [
         {
           title: "Right to Be Forgotten: Privacy vs. Public Interest",
-          body: `Under regulations like the GDPR, individuals have the right to request deletion of their personal data. However, exceptions exist for data held in the public interest, legal obligations, or for exercising freedom of expression.
-        For background check companies, striking a balance between privacy and accuracy can be legally complex.`,
+          body: `Under regulations like the GDPR, individuals have the right to request the deletion of their data, but this right is subject to certain restrictions. Article 17 outlines specific conditions under which data must be erased, such as when it’s no longer necessary, consent is withdrawn, or processing was unlawful. However, there are key exemptions, especially relevant to background check companies, where data may be retained for reasons of public interest and legal compliance. Balancing these rights with the need for accurate reporting is complex, so each request must be assessed individually to ensure both regulatory compliance and data integrity.`,
           url: "https://gdpr.eu/right-to-be-forgotten/",
           img: "/sprites/privacy.png",
         },
         {
-          title: "Ethics of Data Retention in Background Screening",
-          body: `Privacy advocates argue that retaining outdated or irrelevant data can unfairly impact individuals' job prospects and social standing. Ethical screening should avoid perpetuating bias or punishing individuals for past behaviors indefinitely.`,
-          url: "https://iapp.org/news/a/ethics-in-background-screening/",
+          title: "Impact of Improper Data Retention on Individuals",
+          body: `In 2023, a major screening company was fined for failing to honor deletion requests and for reporting expunged criminal records. The incident raised questions about compliance, fairness, and the limits of background screening. The Federal Trade Commission has fined HireRight Solutions, an employment background screening company, $2.6 million for multiple violations of the Fair Credit Reporting Act (FCRA). The FTC alleges the company failed to ensure the accuracy of background reports, did not properly handle consumer disputes, and shared incorrect or outdated criminal records with employers. These actions resulted in consumers being unfairly denied jobs or employment benefits.`,
+          url: "https://www.ftc.gov/news-events/news/press-releases/2012/08/employment-background-screening-company-pay-26-million-penalty-multiple-violations-fair-credit",
           img: "/sprites/ethics.png",
         },
         {
-          title: "Company Fined $20M for Misusing Criminal Data in Reports",
-          body: `In 2023, a major screening company was fined for failing to honor deletion requests and for reporting expunged criminal records. The incident raised questions about compliance, fairness, and the limits of background screening.`,
-          url: "https://www.ftc.gov/news-events",
-          img: "/sprites/fine.png",
+          title: "Non-Compliance with Privacy Laws",
+          body: `Denying the right to be forgotten or failing to comply with data retention regulations can result in significant fines. For example, Google was fined $684,000 by the Belgian data protection authority for refusing to remove links to news articles about a high-profile Belgian citizen, which contained unproven harassment claims and political labels. The authority deemed Google's refusal a serious breach, emphasizing that the outdated and unverified nature of the information outweighed public interest concerns. Google, disputing the decision, argued the case did not meet the European Court of Justice's delisting criteria and has appealed the ruling.`,
+          url: "https://www.cnet.com/tech/tech-industry/google-fined-684000-over-right-to-be-forgotten-failure/",
+          img: "/sprites/law.png",
+        },
+        {
+          title: "FTC: Tech Giants Failing to Protect User Data",
+          body: `The Federal Trade Commission (FTC) reported that major social media and video streaming companies, including Amazon, Meta, YouTube, Twitter, Snap, TikTok, Discord, Reddit, and WhatsApp, collect and sell consumer data without adequate privacy protections, particularly affecting children and teens. The report, based on a years-long investigation, found that many companies engage in broad data sharing, retain user data indefinitely, and provide limited opt-out options. The FTC criticized companies for treating teen users like adults and called for federal privacy legislation to address gaps in protection.`,
+          url: "https://spectrumnews1.com/ca/southern-california/technology/2024/09/19/federal-trade-commission-says-tech-companies-collect-and-sell-consumer-data-without-adequate-protections",
+          img: "/sprites/law.png",
         },
       ],
       background: "/backgrounds/library.jpg",
