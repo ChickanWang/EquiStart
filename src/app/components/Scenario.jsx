@@ -10,6 +10,7 @@ import {
   ButtonGroupContext,
   ButtonGroupButtonContext,
 } from "@mui/material";
+import parse from 'html-react-parser';
 
 const Scenario = ({
   title,
@@ -127,7 +128,7 @@ const Scenario = ({
                 textAlign: "center",
               }}
             >
-              {text}
+              {parse(text)}
             </Typography>
           </div>
         </Box>
@@ -161,6 +162,7 @@ const Scenario = ({
                 borderStyle: "solid",
                 borderWidth: "2px",
                 borderColor: "#ffcc00",
+                padding: 0
               }}
             >
               <CardActionArea
