@@ -334,7 +334,7 @@ export const gameScenes = {
         },
         {
           label: "Develop your own AI scanning system",
-          text: "Task your employees to develop an AI system for the company to use to expedite your screening proceses.",
+          text: "Task your employees to develop an AI system for the company to use to expedite your screening processes.",
           effect: [10, 15, 5, 0],
           nextState: "efficiency_scenario_dialogue_2",
         },
