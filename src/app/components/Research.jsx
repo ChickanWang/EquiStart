@@ -1,14 +1,36 @@
 import React from "react";
-import { Box, Typography, Card, CardMedia, CardContent, CardActionArea, Link } from "@mui/material";
+import {
+  Box,
+  Typography,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActionArea,
+  Link,
+} from "@mui/material";
 
-const Research = ({ title, content, sources, background, sprite, onContinue }) => {
-  const currentDate = new Date().toLocaleDateString();
+const Research = ({
+  title,
+  content,
+  sources,
+  background,
+  sprite,
+  onContinue,
+}) => {
+  const currentDate = new Date().toLocaleDateString("en-us", {
+    weekday: "long",
+    year: "numeric",
+    day: "numeric",
+    month: "long",
+  });
   return (
     <Box
       sx={{
         width: "100%",
         minHeight: "100vh",
-        backgroundImage: `url(${background || "/backgrounds/pixel_library.jpg"})`,
+        backgroundImage: `url(${
+          background || "/backgrounds/pixel_library.jpg"
+        })`,
         backgroundSize: "cover",
         backgroundPosition: "center",
         p: 2,
@@ -59,42 +81,65 @@ const Research = ({ title, content, sources, background, sprite, onContinue }) =
         }}
       >
         <header>
-          <Typography variant="h2" sx={{ fontFamily: "Georgia, serif", color: "#222", mb: 0 }}>
-            The Diversity Gazette
+          <Typography
+            variant="h2"
+            sx={{ fontFamily: "Old London", color: "#222", mb: 0 }}
+          >
+            The EquiStart Gazette
           </Typography>
-          <Typography variant="subtitle1" sx={{ fontFamily: "Georgia, serif", color: "#666", mb: 4 }}>
+          <Typography
+            variant="subtitle1"
+            sx={{ fontFamily: "Georgia, serif", color: "#666", mb: 4 }}
+          >
             {currentDate}
           </Typography>
         </header>
         <article>
-          <Typography variant="h4" sx={{ fontFamily: "Georgia, serif", color: "#222", mb: 2 }}>
+          <Typography
+            variant="h4"
+            sx={{ fontFamily: "Georgia, serif", color: "#222", mb: 2 }}
+          >
             {title}
           </Typography>
-          <Typography variant="body1" sx={{ fontFamily: "Georgia, serif", color: "#333", mb: 4 }}>
+          <Typography
+            variant="body1"
+            sx={{ fontFamily: "Georgia, serif", color: "#333", mb: 4 }}
+          >
             {content}
           </Typography>
         </article>
-        <section style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+        <section
+          style={{ display: "flex", flexDirection: "column", gap: "16px" }}
+        >
           {sources.map((source, idx) => (
             <Card
               key={idx}
               sx={{
-                backgroundColor: "#fff",
+                backgroundColor: "#ede5e0",
                 border: "1px solid #ccc",
               }}
             >
-              <CardActionArea component={Link} href={source.url} target="_blank" rel="noopener">
-                <Box sx={{ display: "flex", flexDirection: "row" }}>
+              <CardActionArea
+                component={Link}
+                href={source.url}
+                target="_blank"
+                rel="noopener"
+              >
+                <Box
+                  sx={{
+                    alignItems: "center",
+                    display: "flex",
+                    flexDirection: "row",
+                  }}
+                >
                   <CardMedia
                     component="img"
                     image={source.img}
                     alt={source.title}
-                    sx={{ 
-                      maxWidth: "150px",
+                    sx={{
+                      width: "150px",
                       objectFit: "cover",
                       borderRadius: "4px 0 0 4px",
-                      borderRight: "1px solid #ccc",
-                      boxShadow: "0 0 5px rgba(0,0,0,0.1)",
                       transition: "transform 0.2s",
                       "&:hover": { transform: "scale(1.05)" },
                     }}
@@ -102,23 +147,32 @@ const Research = ({ title, content, sources, background, sprite, onContinue }) =
                   <CardContent
                     sx={{
                       color: "#222",
-                      fontFamily: "Georgia, serif", 
+                      fontFamily: "Georgia, serif",
                     }}
                   >
-                    <Typography variant="h6" sx={{ fontFamily: "Georgia, serif", color: "#333", mb: 4  }}>
+                    <Typography
+                      variant="h6"
+                      sx={{
+                        fontFamily: "Georgia, serif",
+                        fontWeight: "bold",
+                        color: "#333",
+                        mb: 2,
+                        textAlign: "left",
+                      }}
+                    >
                       {source.title}
                     </Typography>
-                    <Typography 
+                    <Typography
                       variant="body2"
                       sx={{
                         color: "#222",
-                        fontFamily: "Georgia, serif", 
-                        color: "#333", 
-                        mb: 4,
+                        fontFamily: "Georgia, serif",
+                        color: "#333",
                         textAlign: "left",
-                      }}>
-                        {source.body}
-                      </Typography>
+                      }}
+                    >
+                      {source.body}
+                    </Typography>
                   </CardContent>
                 </Box>
               </CardActionArea>

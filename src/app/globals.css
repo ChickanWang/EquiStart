@@ -19,7 +19,13 @@
   }
 }
 
-html, body {
+@font-face {
+  font-family: "Old London";
+  src: url("/public/fonts/old_london/OldLondon.ttf") format("truetype");
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   width: 100%;

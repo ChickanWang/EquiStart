@@ -2,7 +2,13 @@
 import React, { useState } from "react";
 import { Box, Button, Typography } from "@mui/material";
 
-const Dialogue = ({ dialogueData, background, sprite, nextState, onComplete }) => {
+const Dialogue = ({
+  dialogueData,
+  background,
+  sprite,
+  nextState,
+  onComplete,
+}) => {
   const [index, setIndex] = useState(0);
 
   const handleNext = () => {
