@@ -729,7 +729,7 @@ export const gameScenes = {
         {
           title: "Why Gender Equity Matters",
           body: `Research from McKinsey shows companies with more women in leadership see up to 47% higher returns on equity. Firms in the top 25% for gender diversity are also 27% more likely to outperform peers in profitability. Diverse leadership can improve problem-solving, communication, and innovation, fuelling stronger financial performance.`,
-          url: "https://www.mckinsey.com/featured-insights/diversity-and-inclusion",
+          url: "https://professional.dce.harvard.edu/blog/why-gender-equity-in-the-workplace-is-good-for-business/#Why-Gender-Equity-Matters",
           img: "/sprites/human.png",
         },
 
