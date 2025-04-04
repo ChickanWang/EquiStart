@@ -4,7 +4,7 @@
 */
 
 "use client";
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useRef } from "react";
 
 export const GameContext = createContext();
 
@@ -25,14 +25,13 @@ export const GameProvider = ({ children }) => {
   const [seenScenes, setSeenScenes] = useState(new Set());
   const [prevState, setPrevState] = useState("");
 
-  // NEW: Choices History State & Adder Function
   const [choicesHistory, setChoicesHistory] = useState([]);
   const addChoice = (choiceObj) => {
     setChoicesHistory((prev) => [...prev, choiceObj]);
   };
 
   const updateMetric = (key, value) => {
-    setPreviousMetrics((prev) => ({ ...prev, [key]: metrics[key] })); // Save current before update
+    setPreviousMetrics((prev) => ({ ...prev, [key]: metrics[key] }));
     setMetrics((prev) => ({ ...prev, [key]: value }));
   };
 
@@ -43,6 +42,16 @@ export const GameProvider = ({ children }) => {
     setPrevState("");
     setChoicesHistory([]);
     setPreviousMetrics(metricsStarting);
+  };
+
+  const overlayAudioRef = useRef(null);
+  const playOverlay = () => {
+    if (overlayAudioRef.current) {
+      overlayAudioRef.current.volume = 1.0;
+      overlayAudioRef.current.pause();
+      overlayAudioRef.current.currentTime = 0;
+      overlayAudioRef.current.play();
+    }
   };
 
   return (
@@ -60,9 +69,11 @@ export const GameProvider = ({ children }) => {
         choicesHistory, // added to provider
         addChoice, // added to provider
         restartGame,
+        playOverlay,
       }}
     >
       {children}
+      <audio ref={overlayAudioRef} src="/music/button.wav" />
     </GameContext.Provider>
   );
 };

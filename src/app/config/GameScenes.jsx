@@ -51,6 +51,7 @@ export const gameScenes = {
         "You are the CEO of a budding background check screening company.",
         "Your clients are business owners and companies who rely on you to give back accurate information on the people they ask you to check.",
         "Your goal is to grow your company by balancing financial gains, internal employee satisfaction, and external public opinion.",
+        "Be careful to not let your stats drop too low or your company may suffer the consequences!",
         "Are you ready to get started?",
       ],
       background: "/backgrounds/office_background.jpg",
@@ -78,7 +79,7 @@ export const gameScenes = {
         {
           label: "Use an AI Resume Screening Tool",
           text: "Use the tool to save on screening time and costs.",
-          effect: [-50, 10, -5, -15],
+          effect: [-10, 10, -5, -15],
           nextState: "ethical_hiring_scenario_dialogue_1",
         },
         {
@@ -434,19 +435,6 @@ export const gameScenes = {
     },
   },
 
-  dialogue2: {
-    type: "dialogue",
-    props: {
-      dialogueData: ["You've selected a strategy. Let's see how it plays out!"],
-    },
-  },
-  dialogue3: {
-    type: "dialogue",
-    props: {
-      dialogueData: ["The game is over! Thank you for playing."],
-    },
-  },
-
   // Scenario 4: Right to be Forgotten
   right_to_be_forgotten_scenario: {
     type: "scenario",
@@ -457,7 +445,7 @@ export const gameScenes = {
     Some of these requests are legitimate, but others come from individuals whose records are relevant to client decisions.
     Fully honoring these requests would build trust but could also jeopardize the accuracy of your reports.
     Meanwhile, your legal team suggests alternative tactics to retain valuable data. What path will you take?`,
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/court_background.png",
       research: "right_to_be_forgotten_scenario_research",
       sprite: "/sprites/ceo.png",
       choices: [
@@ -491,25 +479,25 @@ export const gameScenes = {
           title: "Right to Be Forgotten: Privacy vs. Public Interest",
           body: `Under regulations like the GDPR, individuals have the right to request the deletion of their data, but this right is subject to certain restrictions. Article 17 outlines specific conditions under which data must be erased, such as when it’s no longer necessary, consent is withdrawn, or processing was unlawful. However, there are key exemptions, especially relevant to background check companies, where data may be retained for reasons of public interest and legal compliance. Balancing these rights with the need for accurate reporting is complex, so each request must be assessed individually to ensure both regulatory compliance and data integrity.`,
           url: "https://gdpr.eu/right-to-be-forgotten/",
-          img: "/sprites/privacy.png",
+          img: "/sprites/right_to_be_forgotten.png",
         },
         {
           title: "Impact of Improper Data Retention on Individuals",
           body: `In 2023, a major screening company was fined for failing to honor deletion requests and for reporting expunged criminal records. The incident raised questions about compliance, fairness, and the limits of background screening. The Federal Trade Commission has fined HireRight Solutions, an employment background screening company, $2.6 million for multiple violations of the Fair Credit Reporting Act (FCRA). The FTC alleges the company failed to ensure the accuracy of background reports, did not properly handle consumer disputes, and shared incorrect or outdated criminal records with employers. These actions resulted in consumers being unfairly denied jobs or employment benefits.`,
           url: "https://www.ftc.gov/news-events/news/press-releases/2012/08/employment-background-screening-company-pay-26-million-penalty-multiple-violations-fair-credit",
-          img: "/sprites/ethics.png",
+          img: "/sprites/impact.png",
         },
         {
           title: "Non-Compliance with Privacy Laws",
           body: `Denying the right to be forgotten or failing to comply with data retention regulations can result in significant fines. For example, Google was fined $684,000 by the Belgian data protection authority for refusing to remove links to news articles about a high-profile Belgian citizen, which contained unproven harassment claims and political labels. The authority deemed Google's refusal a serious breach, emphasizing that the outdated and unverified nature of the information outweighed public interest concerns. Google, disputing the decision, argued the case did not meet the European Court of Justice's delisting criteria and has appealed the ruling.`,
           url: "https://www.cnet.com/tech/tech-industry/google-fined-684000-over-right-to-be-forgotten-failure/",
-          img: "/sprites/law.png",
+          img: "/sprites/compliance.png",
         },
         {
           title: "FTC: Tech Giants Failing to Protect User Data",
           body: `The Federal Trade Commission (FTC) reported that major social media and video streaming companies, including Amazon, Meta, YouTube, Twitter, Snap, TikTok, Discord, Reddit, and WhatsApp, collect and sell consumer data without adequate privacy protections, particularly affecting children and teens. The report, based on a years-long investigation, found that many companies engage in broad data sharing, retain user data indefinitely, and provide limited opt-out options. The FTC criticized companies for treating teen users like adults and called for federal privacy legislation to address gaps in protection.`,
           url: "https://spectrumnews1.com/ca/southern-california/technology/2024/09/19/federal-trade-commission-says-tech-companies-collect-and-sell-consumer-data-without-adequate-protections",
-          img: "/sprites/law.png",
+          img: "/sprites/ftc.png",
         },
       ],
       background: "/backgrounds/library.jpg",
@@ -528,7 +516,7 @@ export const gameScenes = {
         "But the public appreciates your transparency and legal teams praise your risk mitigation approach.",
         "As a result, your data accuracy and short-term profit drop slightly, but your public trust and regulatory standing increase.",
       ],
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
@@ -544,7 +532,7 @@ export const gameScenes = {
         "Your client trust remains high, but the public image of your company starts to decline.",
         "As a result, you maintain profits in the short term, but face growing legal risks and declining public trust.",
       ],
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
@@ -560,7 +548,7 @@ export const gameScenes = {
         "A class-action lawsuit looms in the distance, and your legal team starts preparing.",
         "As a result, you retain most of your data and profits, but face significant ethical criticism and potential legal exposure.",
       ],
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
@@ -599,11 +587,11 @@ export const gameScenes = {
           label: "Engage in Greenwashing",
           text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
             our core, energy-intensive data infrastructure unchanged.`,
-          effect: [-10, 20, -30, -10],
-          nextState: "environmental_scenario_dialogue_3",
-        },
-      ],
-    },
+          effect: [-10, 20, -20, -10],
+          nextState: "environmental_scenario_dialogue_3"
+        }
+      ]
+    }
   },
   environmental_scenario_research: {
     type: "research",
