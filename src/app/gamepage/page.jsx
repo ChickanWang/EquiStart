@@ -37,7 +37,7 @@ export function handleNextState(
   if (Object.values(metrics).some((metric) => metric <= 0)) {
     console.log("A metric reached 0, ending the game.");
     return "finalResults";
-  } else if (seenScenes.size >= 4) {
+  } else if (seenScenes.size >= 6) {
     // If 3 or more scenes have been seen, end the game
     return "finalResults";
   } else if (
