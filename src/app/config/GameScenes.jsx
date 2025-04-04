@@ -11,7 +11,6 @@
       - text: The text to display in the scene
       - background: The background image of the scene
       - sprite: The sprite image of the character
-      - position: The position of the character (left, right, center) [not implemented]
       - choices: The choices available in the scenario
         - label: The label of the choice
         - text: The text to display when the choice is made
@@ -75,7 +74,6 @@ export const gameScenes = {
       background: "/backgrounds/office_background.jpg",
       research: "ethical_hiring_scenario_research",
       sprite: "/sprites/ceo.png",
-      position: "left",
       choices: [
         {
           label: "Use an AI Resume Screening Tool",
@@ -199,7 +197,6 @@ export const gameScenes = {
       background: "/backgrounds/office_background.jpg",
       research: "security_scenario_research",
       sprite: "/sprites/ceo.png",
-      position: "left",
       choices: [
         {
           label: "Mandatory biometrics",
@@ -329,7 +326,6 @@ export const gameScenes = {
       background: "/backgrounds/office_background.jpg",
       research: "efficiency_scenario_research",
       sprite: "/sprites/ceo.png",
-      position: "left",
       choices: [
         {
           label: "Mandatory biometrics",
@@ -476,7 +472,6 @@ export const gameScenes = {
       background: "/backgrounds/server_room.jpg",
       research: "right_to_be_forgotten_scenario_research",
       sprite: "/sprites/ceo.png",
-      position: "left",
       choices: [
         {
           label: "Fully Honor Deletion Requests",
@@ -577,4 +572,121 @@ export const gameScenes = {
       nextState: "nextState",
     },
   },
+  environmental_scenario: {
+    type: "scenario",
+    props: {
+      title: "Data Center Sustainability Decision",
+      text:  `Your company is expanding operations to handle more facial recognition and identity-tracking data. 
+        This means scaling server infrastructure—raising concerns about environmental impact. Your legal and PR advisor,
+        points out that many peers in the surveillance and AI sector are moving toward renewable energy. She asks: 
+        <br/>
+        <br/>
+        <b>
+          “As we grow, should we make a public commitment to transition to green energy to align with industry trends and reduce our environmental footprint?"
+        </b>`,
+      background: "/backgrounds/data_center.png",
+      research: "environmental_scenario_research",
+      sprite: "/sprites/lawyer.png",
+      choices: [
+        {
+          label: "Adopt Renewable Energy Solutions",
+          text: `Migrate data centers to renewable energy-powered, eco-friendly hosting solutions, 
+            even if the initial investment is steep.`,
+          effect: [30, -20, 30, 0],
+          nextState: "environmental_scenario_dialogue_1"
+        },
+        {
+          label: "Maintain Current Operations",
+          text: `Continue powering our extensive data-scraping and storage operations with existing 
+            energy sources, despite the long-term environmental toll.`,
+          effect: [5, 10, -15, 0],
+          nextState: "environmental_scenario_dialogue_2"
+        },
+        {
+          label: "Engage in Greenwashing",
+          text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
+            our core, energy-intensive data infrastructure unchanged.`,
+          effect: [-10, 20, -30, -10],
+          nextState: "environmental_scenario_dialogue_3"
+        }
+      ]
+    }
+  },
+  environmental_scenario_research: {
+    type: "research",
+    props: {
+      sources: [
+        {
+          title: "Benefits of Renewable Energy towards Local Economies",
+          body:  `U.S. data centers consume around 2% of the nation's electricity, historically relying on fossil fuels that drive carbon emissions.
+            Renewable projects boost local economies through tax revenue and job creation, 
+            while federal incentives like Renewable Energy Certificates further encourage clean energy adoption.`,
+          url: "https://www.landgate.com/news/the-synergy-between-data-centers-and-renewable-energy",
+          img: "/sprites/renewable_energy.png"
+        },
+        {
+          title: "Environmental Threats Posed by Data Centers",
+          body: `Data centers account for 1–1.5% of global electricity use (220–320 TWh in 2021) and nearly 1% of energy-related GHG emissions, 
+          despite a 160% increase in workloads since 2015. Google reports its data centers consume about 450,000 gallons of water daily, while 
+          some hyperscale centers may use over 1 million gallons per day—often in drought-prone areas. In 2019, 53.6 Mt of e-waste was generated
+          globally, releasing 98 Mt of CO₂ equivalents from discarded cooling equipment—equal to 0.3% of global energy-related emissions.`,
+          url: "https://www.techtarget.com/searchdatacenter/feature/Assess-the-environmental-impact-of-data-centers",
+          img: "/sprites/environmental_impact.png"
+        },
+        {
+          title: "Greenwashing of Tech Giants",
+          body: `In 2018, Amazon emitted 44.4 million tonnes of CO₂e—equivalent to 55.5 million return flights from London to New York—yet its climate pledge excludes 75% of its emissions from its supply chain.
+          Microsoft reported 16 million tonnes CO₂e in 2020 (20 million NY flights) and aims for 100% renewable energy by 2025 and carbon negativity by 2030, backed by $1 billion in carbon removal investment.
+          Both companies undermine their pledges by continuing partnerships with oil companies, casting doubt on the credibility and scope (e.g., lack of Scope 3 coverage) of their climate commitments.`,
+          url: "https://www.ethicalconsumer.org/technology/amazon-microsoft-greenwashing-technology-industry",
+          img: "/sprites/greenwashing.png"
+        }
+      ],
+      background: "/backgrounds/library.jpg",
+      sprite: "/sprites/back_to_work.png",
+      nextState: "environmental_scenario"
+    }
+  },
+  environmental_scenario_dialogue_1: {
+    type: "dialogue",
+    props: {
+      dialogueData: [
+        "You decided to invest in renewable energy and eco-friendly hosting solutions.",
+        "The initial costs were substantial, but over time, operational expenses decreased due to energy savings.",
+        "Your company's commitment to sustainability has enhanced its reputation, attracting environmentally conscious clients.",
+        "As a result, your profitability has improved, public perception has significantly increased, and your carbon footprint has been reduced."
+      ],
+      background: "/backgrounds/office_background.jpg",
+      sprite: "/sprites/ceo.png",
+      nextState: "nextState"
+    }
+  },
+  environmental_scenario_dialogue_2: {
+    type: "dialogue",
+    props: {
+      dialogueData: [
+        "You chose to maintain current energy-intensive operations to avoid immediate financial costs.",
+        "While short-term expenses remained stable, increasing energy prices led to higher operational costs over time.",
+        "Your company's environmental impact has drawn criticism from stakeholders and clients concerned about sustainability.",
+        "As a result, your profitability has declined, public perception has worsened, and your carbon footprint remains high."
+      ],
+      background: "/backgrounds/office_background.jpg",
+      sprite: "/sprites/ceo.png",
+      nextState: "nextState"
+    }
+  },
+  environmental_scenario_dialogue_3: {
+    type: "dialogue",
+    props: {
+      dialogueData: [
+        "You opted to publicly promote minimal environmental efforts without substantial operational changes.",
+        "Initially, this improved public perception, but investigative reports exposed the lack of genuine sustainability initiatives.",
+        "The revelation of greenwashing damaged your company's reputation and led to a loss of client trust.",
+        "As a result, your public perception has significantly decreased, profitability has suffered, and your carbon footprint remains unchanged."
+      ],
+      background: "/backgrounds/office_background.jpg",
+      sprite: "/sprites/ceo.png",
+      nextState: "nextState"
+    }
+  }
 };
