@@ -233,7 +233,7 @@ export const gameScenes = {
             receive pay. There was no clear way for staff to opt out of giving their biometric data and it was deemed neither fair nor 
             proportionate.
           `,
-          url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
+          url: "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/2024/02/ico-orders-serco-leisure-to-stop-using-facial-recognition-technology/",
           img: "/sprites/biometric.png",
         },
         {
@@ -334,13 +334,13 @@ export const gameScenes = {
         },
         {
           label: "Develop your own AI scanning system",
-          text: "Task your employees to develop an AI system for the company to use to expedite your screening procceses.",
+          text: "Task your employees to develop an AI system for the company to use to expedite your screening proceses.",
           effect: [10, 15, 5, 0],
           nextState: "efficiency_scenario_dialogue_2",
         },
         {
           label: "Keep your current methods",
-          text: "Stick to current proccesses to save time and money, and avoid the risks of using a blackbox AI system.",
+          text: "Stick to current processes to save time and money, and avoid the risks of using a blackbox AI system.",
           effect: [-10, -10, 15, 0],
           nextState: "efficiency_scenario_dialogue_3",
         },
@@ -588,10 +588,10 @@ export const gameScenes = {
           text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
             our core, energy-intensive data infrastructure unchanged.`,
           effect: [-10, 20, -20, -10],
-          nextState: "environmental_scenario_dialogue_3"
-        }
-      ]
-    }
+          nextState: "environmental_scenario_dialogue_3",
+        },
+      ],
+    },
   },
   environmental_scenario_research: {
     type: "research",

@@ -71,7 +71,7 @@ const FundingRound = ({ setState }) => {
           mb={3}
           sx={{ fontFamily: "'Press Start 2P', Inconsolata, monospace" }}
         >
-          Company Evalutation
+          Company Evaluation
         </Typography>
         <Typography
           variant="h5"
