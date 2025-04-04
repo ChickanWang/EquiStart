@@ -51,6 +51,7 @@ export const gameScenes = {
         "You are the CEO of a budding background check screening company.",
         "Your clients are business owners and companies who rely on you to give back accurate information on the people they ask you to check.",
         "Your goal is to grow your company by balancing financial gains, internal employee satisfaction, and external public opinion.",
+        "Be careful to not let your stats drop too low or your company may suffer the consequences!",
         "Are you ready to get started?",
       ],
       background: "/backgrounds/office_background.jpg",
@@ -78,7 +79,7 @@ export const gameScenes = {
         {
           label: "Use an AI Resume Screening Tool",
           text: "Use the tool to save on screening time and costs.",
-          effect: [-50, 10, -5, -15],
+          effect: [-10, 10, -5, -15],
           nextState: "ethical_hiring_scenario_dialogue_1",
         },
         {
@@ -314,28 +315,33 @@ export const gameScenes = {
     type: "scenario",
     props: {
       title: "Work Efficiency Dilemma",
-      text: `As the demands of your business grows, you decide that it's time to change the way you work and use 
-        more technology to accelerate your processes. `,
+      text: `As the demands of your business grows, you're considering making changes to your work processes and 
+        integrating more technology to accelerate your processes. You've heard of a company called ClearView AI 
+        that is being welcomed and embraced in law enforcement to aid in identifying suspects, perhaps it's worth
+        reaching out to employ their services? You are also aware that some of your employees have been dabbling 
+        and pitching ideas of developing a whitebox AI system for the company to use rather than using other software. You 
+        like the idea of knowing all the ins and outs of the technology you're using, but you're wary of the heavy 
+        investments needed to implement this. What should you do?'`,
       background: "/backgrounds/office_background.jpg",
       research: "efficiency_scenario_research",
       sprite: "/sprites/ceo.png",
       choices: [
         {
-          label: "Mandatory biometrics",
-          text: "Install facial recognition and fingerprint scanners and require verification to access any data.",
-          effect: [-20, -20, -10, -10],
+          label: "Use Clearview AI",
+          text: "Employ Clearview AI's facial recognition service to improve your background checks.",
+          effect: [-20, -20, -20, 0],
           nextState: "efficiency_scenario_dialogue_1",
         },
         {
-          label: "Implement MFA",
-          text: "Require MFA to access any company related data.",
-          effect: [-5, 20, 20, 0],
+          label: "Develop your own AI scanning system",
+          text: "Task your employees to develop an AI system for the company to use to expedite your screening procceses.",
+          effect: [10, 15, 5, 0],
           nextState: "efficiency_scenario_dialogue_2",
         },
         {
-          label: "Increase current security training",
-          text: "Increase completion frequency of your current security training videos.",
-          effect: [-5, -20, -20, 0],
+          label: "Keep your current methods",
+          text: "Stick to current proccesses to save time and money, and avoid the risks of using a blackbox AI system.",
+          effect: [-10, -10, 15, 0],
           nextState: "efficiency_scenario_dialogue_3",
         },
       ],
@@ -347,32 +353,32 @@ export const gameScenes = {
       sources: [
         {
           title:
-            "ICO Orders Serco Leisure to Stop Using Facial Recognition Technology",
-          body: `The Information Commissioner's Office (ICO) in the UK issued an official order to the event management company Serco Leisure
-            to stop using facial recognition technology and fingerprint scanning to monitor employee attendance. The company failed to show 
-            why it is necessary or proportionate to use facial recognition and fingerprint scanning for attendance checks and subsequently 
-            receive pay. There was no clear way for staff to opt out of giving their biometric data and it was deemed neither fair nor 
-            proportionate.
+            "Clearview AI — Controversial Facial Recognition Firm—Fined $33 Million For 'Illegal Database'",
+          body: `Clearview AI has faced multiple sanctions and censures in Europe for violating General Data Protection Regulation rules. 
+          it has been fined $22 million from Italy, Greece, France, and deemed illegal in Germany and Austria. The company has also been fined 
+          $9 million from the UK. The company is facing controversy due to it's database containing over 50 billion scraped images of people's 
+          faces, all of which were obtained and are being used without consent.
           `,
-          url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
-          img: "/sprites/biometric.png",
+          url: "https://www.forbes.com/sites/roberthart/2024/09/03/clearview-ai-controversial-facial-recognition-firm-fined-33-million-for-illegal-database/",
+          img: "/sprites/clearview-ai.png",
         },
         {
-          title: "Case Study: Does Facial Recognition Tech Enhance Security?",
-          body: `A day-care center installed a facial recognition security system to verify and allow authorized individuals to enter and for 
-          parents to pick up their children. It photographs every visitor's face and flags an alarm if the visitor cannot be recognized or if 
-          their face is covered. Multiple false alarms occurred with the system, all five alarms were triggered by dark-skinned women. 
+          title: "White Box vs. Black Box Algorithms in Machine Learning",
+          body: `Industries that are heavily regulated require white box models because it is crucial to be able to explain decisions and ensure 
+          compliance with regulations like the GDPR. White box models allow clear interpretability, auditability, and transparency over 
+          black box approaches. 
           `,
-          url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
-          img: "/sprites/facescanner.png",
+          url: "https://medium.com/biased-algorithms/white-box-vs-black-box-algorithms-in-machine-learning-af460de154ef",
+          img: "/sprites/whitebox.png",
         },
         {
-          title: "Are We Ready to Give Up on Security",
-          body: `Microsoft's 2023 Digital Defense Report found that a popular form of video-based traning reduced phish-clicking behaviour
-            only by 3%. IBM Security found that there is a different in 1.5 million USD or 33.9% in data breach costs between companies with 
-            high and low adoption of security awareness training in the workplace.`,
-          url: "https://thehackernews.com/2023/12/are-we-ready-to-give-up-on-security.html",
-          img: "/sprites/training.png",
+          title:
+            "Combating Employee Burnout With AI And Future Of Work Policies",
+          body: `Artificial intelligence can help combat employee burnout such as through personalized workloads, and automation of repetitive and 
+          time-consuming tasks. For example, Google, Zoom, and Otter.ai have implemented AI in their virtual meeting products to provide AI-generated 
+          meeting notes and action items.`,
+          url: "https://www.forbes.com/sites/davidhenkin/2023/09/27/combating-employee-burnout-with-ai-and-future-of-work-policies/",
+          img: "/sprites/burnout.png",
         },
       ],
       background: "/backgrounds/library.jpg",
@@ -384,15 +390,12 @@ export const gameScenes = {
     type: "dialogue",
     props: {
       dialogueData: [
-        "You decided to mandate facial recognition and fingerprint scanning to verify identities and access resources.",
-        "You drew in some new clients who found your security measures robust and reliable!",
-        "But your facial scanners kept flagging false alarms on your dark-skinned employees and you are receiving more and more internal complaints.",
-        "A lot of your employees who were people of colour have left.",
-        `Both current and ex-employees are speaking out against your security measures and the company's being painted as 
-        a racist, nefarious organization that harvests it's employees' personal data.`,
-        "You lose your new clients and also some of your existing ones.",
-        "Perhaps you jumped the gun on this one.",
-        "As a result, your public perception and diversity has decreased, and employee satisfaction and profitability has significantly decreased.",
+        "You decided use Clearview AI's facial recognition service to help provide your background checks.",
+        "Your employees found the system very efficient and enjoyed using the saved time towards other tasks.",
+        "Unfortunately, Clearview has come under fire from various organizations and agencies for its dubious facial recognition methods.",
+        "There is public outcry lambasting companies who are using Clearview's services, including yours.",
+        "Your clients are also being dragged into the issue and want to sever their relations.",
+        "As a result, your employee satisfaction, profitability, public perception has significantly decreased.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
@@ -403,11 +406,12 @@ export const gameScenes = {
     type: "dialogue",
     props: {
       dialogueData: [
-        "You decided to implement MFA for access to company resources.",
-        "Your employees were slightly annoyed at having to authenticate everytime they accessed things but they agreed that it made things more secure.",
-        "You successfully avoided experiencing a data breach!",
-        "Your relationship with your current clients improved and you also gained a lot more new clients!",
-        "As a result, your profitability and public perception has significantly increased, and employee satisfaction has slightly decreased.",
+        "You decided to implement your own AI system to improve your workforce efficiency.",
+        "Your employees were excited for the change of pace, and got to work right away.",
+        "The process was not easy, and your team was getting frustrated near the end but they finished developing and successfully deployed the system!",
+        "Your clients are happy with your improved services, and the workload is a lighter for your employees as well.",
+        "Since you know all the details and are transparent about your technology, your clients and the public feel more assured in how you conduct your work.",
+        "As a result, public perception has slightly increased, and your employee satisfaction and profitability has increased.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
@@ -419,29 +423,15 @@ export const gameScenes = {
     props: {
       dialogueData: [
         "Well if it ain't broke, don't fix it.",
-        "You decided to not implement additional security measures and required your employees to complete the security training videos again.",
-        "Your workers were slightly annoyed but everyone recompleted their training.                                                                                ",
-        "Unfortunately, it doesn't seem like that was enough, your company still had a data breach happen.",
-        "One of your employees fell for a phishing scam in their email.",
-        "Your company is seen as insecure and unreliable, you lose a lot of your clientele.",
-        "As a result, your profitability and public perception has significantly decreased, and employee satisfaction has slightly decreased. ",
+        "You decided to continue using your current work processes for the time being.",
+        "The recent controversies and scandals around Clearview AI and their clients have you feeling like you dodged a bullet.",
+        "The public is happy that you weren't listed among the companies who used their services.",
+        "However, the increased and tedious workload has caught up to your employees and they are feeling burnt out.",
+        "As a result, public perception has increased, and employee satisfaction and profitability has decreased. ",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
-    },
-  },
-
-  dialogue2: {
-    type: "dialogue",
-    props: {
-      dialogueData: ["You've selected a strategy. Let's see how it plays out!"],
-    },
-  },
-  dialogue3: {
-    type: "dialogue",
-    props: {
-      dialogueData: ["The game is over! Thank you for playing."],
     },
   },
 
@@ -597,11 +587,11 @@ export const gameScenes = {
           label: "Engage in Greenwashing",
           text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
             our core, energy-intensive data infrastructure unchanged.`,
-          effect: [-10, 20, -30, -10],
-          nextState: "environmental_scenario_dialogue_3",
-        },
-      ],
-    },
+          effect: [-10, 20, -20, -10],
+          nextState: "environmental_scenario_dialogue_3"
+        }
+      ]
+    }
   },
   environmental_scenario_research: {
     type: "research",
