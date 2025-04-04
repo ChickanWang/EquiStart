@@ -703,7 +703,7 @@ export const gameScenes = {
         {
           label: "Token Initiatives",
           text: "Implement surface-level diversity efforts without addressing root issues.",
-          effect: [-5, 0, -10, -5],
+          effect: [-5, -20, -10, -5],
           nextState: "gender_equity_dialogue_3",
         },
       ],
