@@ -32,9 +32,11 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
 
   // Determine outcome message based on conditions
   let overallOutcome = "";
+  let backgroundImage = "url('backgrounds/funding_round.png')";
   if (failedMetric || totalScore < 280) {
     overallOutcome =
       "FAILURE - Your company did not meet the minimum requirements.";
+    backgroundImage = "url('backgrounds/losing_background.png')";
   } else {
     overallOutcome = "SUCCESS - Your company is thriving!";
   }
@@ -61,7 +63,7 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
         justifyContent: "center",
         height: "100vh",
         padding: 2,
-        backgroundImage: "url('backgrounds/funding_round.png')",
+        backgroundImage: backgroundImage,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
       }}
@@ -131,7 +133,7 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
               >
                 <Box
                   sx={{
-                    width: `${Math.min(value, 100)}%`,
+                    width: `${Math.max(0, Math.min(value, 100))}%`,
                     height: "100%",
                     backgroundColor: statColors[key] || "#0ff",
                     transition: "width 0.4s ease-in-out",
@@ -206,9 +208,6 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
                   ]
                     .map((metric, i) => `${metric}: ${choice.effect[i]}`)
                     .join(", ")}
-                </Typography>
-                <Typography variant="body2" sx={{ fontSize: "0.75rem", mb: 1 }}>
-                  Next State: {choice.nextState}
                 </Typography>
               </Box>
             ))
