@@ -544,7 +544,7 @@ export const gameScenes = {
       dialogueData: [
         "You allow data deletion in principle—but implement slow, confusing steps to reduce actual deletions.",
         "Users get frustrated with the process, and complaints begin appearing on review sites and social media.",
-        "Your clients remain satisfied, but a watchdog group accuses you of using 'dark patterns' to suppress user rights.",
+        "Your clients remain satisfied, but a watchdog group accuses you of using bad practices that suppress user rights.",
         "A class-action lawsuit looms in the distance, and your legal team starts preparing.",
         "As a result, you retain most of your data and profits, but face significant ethical criticism and potential legal exposure.",
       ],
