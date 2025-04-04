@@ -455,7 +455,7 @@ export const gameScenes = {
     Some of these requests are legitimate, but others come from individuals whose records are relevant to client decisions.
     Fully honoring these requests would build trust but could also jeopardize the accuracy of your reports.
     Meanwhile, your legal team suggests alternative tactics to retain valuable data. What path will you take?`,
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/court_background.png",
       research: "right_to_be_forgotten_scenario_research",
       sprite: "/sprites/ceo.png",
       choices: [
@@ -489,25 +489,25 @@ export const gameScenes = {
           title: "Right to Be Forgotten: Privacy vs. Public Interest",
           body: `Under regulations like the GDPR, individuals have the right to request the deletion of their data, but this right is subject to certain restrictions. Article 17 outlines specific conditions under which data must be erased, such as when it’s no longer necessary, consent is withdrawn, or processing was unlawful. However, there are key exemptions, especially relevant to background check companies, where data may be retained for reasons of public interest and legal compliance. Balancing these rights with the need for accurate reporting is complex, so each request must be assessed individually to ensure both regulatory compliance and data integrity.`,
           url: "https://gdpr.eu/right-to-be-forgotten/",
-          img: "/sprites/privacy.png",
+          img: "/sprites/right_to_be_forgotten.png",
         },
         {
           title: "Impact of Improper Data Retention on Individuals",
           body: `In 2023, a major screening company was fined for failing to honor deletion requests and for reporting expunged criminal records. The incident raised questions about compliance, fairness, and the limits of background screening. The Federal Trade Commission has fined HireRight Solutions, an employment background screening company, $2.6 million for multiple violations of the Fair Credit Reporting Act (FCRA). The FTC alleges the company failed to ensure the accuracy of background reports, did not properly handle consumer disputes, and shared incorrect or outdated criminal records with employers. These actions resulted in consumers being unfairly denied jobs or employment benefits.`,
           url: "https://www.ftc.gov/news-events/news/press-releases/2012/08/employment-background-screening-company-pay-26-million-penalty-multiple-violations-fair-credit",
-          img: "/sprites/ethics.png",
+          img: "/sprites/impact.png",
         },
         {
           title: "Non-Compliance with Privacy Laws",
           body: `Denying the right to be forgotten or failing to comply with data retention regulations can result in significant fines. For example, Google was fined $684,000 by the Belgian data protection authority for refusing to remove links to news articles about a high-profile Belgian citizen, which contained unproven harassment claims and political labels. The authority deemed Google's refusal a serious breach, emphasizing that the outdated and unverified nature of the information outweighed public interest concerns. Google, disputing the decision, argued the case did not meet the European Court of Justice's delisting criteria and has appealed the ruling.`,
           url: "https://www.cnet.com/tech/tech-industry/google-fined-684000-over-right-to-be-forgotten-failure/",
-          img: "/sprites/law.png",
+          img: "/sprites/compliance.png",
         },
         {
           title: "FTC: Tech Giants Failing to Protect User Data",
           body: `The Federal Trade Commission (FTC) reported that major social media and video streaming companies, including Amazon, Meta, YouTube, Twitter, Snap, TikTok, Discord, Reddit, and WhatsApp, collect and sell consumer data without adequate privacy protections, particularly affecting children and teens. The report, based on a years-long investigation, found that many companies engage in broad data sharing, retain user data indefinitely, and provide limited opt-out options. The FTC criticized companies for treating teen users like adults and called for federal privacy legislation to address gaps in protection.`,
           url: "https://spectrumnews1.com/ca/southern-california/technology/2024/09/19/federal-trade-commission-says-tech-companies-collect-and-sell-consumer-data-without-adequate-protections",
-          img: "/sprites/law.png",
+          img: "/sprites/ftc.png",
         },
       ],
       background: "/backgrounds/library.jpg",
@@ -526,7 +526,7 @@ export const gameScenes = {
         "But the public appreciates your transparency and legal teams praise your risk mitigation approach.",
         "As a result, your data accuracy and short-term profit drop slightly, but your public trust and regulatory standing increase.",
       ],
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
@@ -542,7 +542,7 @@ export const gameScenes = {
         "Your client trust remains high, but the public image of your company starts to decline.",
         "As a result, you maintain profits in the short term, but face growing legal risks and declining public trust.",
       ],
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
@@ -558,7 +558,7 @@ export const gameScenes = {
         "A class-action lawsuit looms in the distance, and your legal team starts preparing.",
         "As a result, you retain most of your data and profits, but face significant ethical criticism and potential legal exposure.",
       ],
-      background: "/backgrounds/server_room.jpg",
+      background: "/backgrounds/office_background_2.jpg",
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
@@ -567,7 +567,7 @@ export const gameScenes = {
     type: "scenario",
     props: {
       title: "Data Center Sustainability Decision",
-      text:  `Your company is expanding operations to handle more facial recognition and identity-tracking data. 
+      text: `Your company is expanding operations to handle more facial recognition and identity-tracking data. 
         This means scaling server infrastructure—raising concerns about environmental impact. Your legal and PR advisor,
         points out that many peers in the surveillance and AI sector are moving toward renewable energy. She asks: 
         <br/>
@@ -584,24 +584,24 @@ export const gameScenes = {
           text: `Migrate data centers to renewable energy-powered, eco-friendly hosting solutions, 
             even if the initial investment is steep.`,
           effect: [30, -20, 30, 0],
-          nextState: "environmental_scenario_dialogue_1"
+          nextState: "environmental_scenario_dialogue_1",
         },
         {
           label: "Maintain Current Operations",
           text: `Continue powering our extensive data-scraping and storage operations with existing 
             energy sources, despite the long-term environmental toll.`,
           effect: [5, 10, -15, 0],
-          nextState: "environmental_scenario_dialogue_2"
+          nextState: "environmental_scenario_dialogue_2",
         },
         {
           label: "Engage in Greenwashing",
           text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
             our core, energy-intensive data infrastructure unchanged.`,
           effect: [-10, 20, -30, -10],
-          nextState: "environmental_scenario_dialogue_3"
-        }
-      ]
-    }
+          nextState: "environmental_scenario_dialogue_3",
+        },
+      ],
+    },
   },
   environmental_scenario_research: {
     type: "research",
@@ -609,11 +609,11 @@ export const gameScenes = {
       sources: [
         {
           title: "Benefits of Renewable Energy towards Local Economies",
-          body:  `U.S. data centers consume around 2% of the nation's electricity, historically relying on fossil fuels that drive carbon emissions.
+          body: `U.S. data centers consume around 2% of the nation's electricity, historically relying on fossil fuels that drive carbon emissions.
             Renewable projects boost local economies through tax revenue and job creation, 
             while federal incentives like Renewable Energy Certificates further encourage clean energy adoption.`,
           url: "https://www.landgate.com/news/the-synergy-between-data-centers-and-renewable-energy",
-          img: "/sprites/renewable_energy.png"
+          img: "/sprites/renewable_energy.png",
         },
         {
           title: "Environmental Threats Posed by Data Centers",
@@ -622,7 +622,7 @@ export const gameScenes = {
           some hyperscale centers may use over 1 million gallons per day—often in drought-prone areas. In 2019, 53.6 Mt of e-waste was generated
           globally, releasing 98 Mt of CO₂ equivalents from discarded cooling equipment—equal to 0.3% of global energy-related emissions.`,
           url: "https://www.techtarget.com/searchdatacenter/feature/Assess-the-environmental-impact-of-data-centers",
-          img: "/sprites/environmental_impact.png"
+          img: "/sprites/environmental_impact.png",
         },
         {
           title: "Greenwashing of Tech Giants",
@@ -630,13 +630,13 @@ export const gameScenes = {
           Microsoft reported 16 million tonnes CO₂e in 2020 (20 million NY flights) and aims for 100% renewable energy by 2025 and carbon negativity by 2030, backed by $1 billion in carbon removal investment.
           Both companies undermine their pledges by continuing partnerships with oil companies, casting doubt on the credibility and scope (e.g., lack of Scope 3 coverage) of their climate commitments.`,
           url: "https://www.ethicalconsumer.org/technology/amazon-microsoft-greenwashing-technology-industry",
-          img: "/sprites/greenwashing.png"
-        }
+          img: "/sprites/greenwashing.png",
+        },
       ],
       background: "/backgrounds/library.jpg",
       sprite: "/sprites/back_to_work.png",
-      nextState: "environmental_scenario"
-    }
+      nextState: "environmental_scenario",
+    },
   },
   environmental_scenario_dialogue_1: {
     type: "dialogue",
@@ -645,12 +645,12 @@ export const gameScenes = {
         "You decided to invest in renewable energy and eco-friendly hosting solutions.",
         "The initial costs were substantial, but over time, operational expenses decreased due to energy savings.",
         "Your company's commitment to sustainability has enhanced its reputation, attracting environmentally conscious clients.",
-        "As a result, your profitability has improved, public perception has significantly increased, and your carbon footprint has been reduced."
+        "As a result, your profitability has improved, public perception has significantly increased, and your carbon footprint has been reduced.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
-      nextState: "nextState"
-    }
+      nextState: "nextState",
+    },
   },
   environmental_scenario_dialogue_2: {
     type: "dialogue",
@@ -659,12 +659,12 @@ export const gameScenes = {
         "You chose to maintain current energy-intensive operations to avoid immediate financial costs.",
         "While short-term expenses remained stable, increasing energy prices led to higher operational costs over time.",
         "Your company's environmental impact has drawn criticism from stakeholders and clients concerned about sustainability.",
-        "As a result, your profitability has declined, public perception has worsened, and your carbon footprint remains high."
+        "As a result, your profitability has declined, public perception has worsened, and your carbon footprint remains high.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
-      nextState: "nextState"
-    }
+      nextState: "nextState",
+    },
   },
   environmental_scenario_dialogue_3: {
     type: "dialogue",
@@ -673,12 +673,12 @@ export const gameScenes = {
         "You opted to publicly promote minimal environmental efforts without substantial operational changes.",
         "Initially, this improved public perception, but investigative reports exposed the lack of genuine sustainability initiatives.",
         "The revelation of greenwashing damaged your company's reputation and led to a loss of client trust.",
-        "As a result, your public perception has significantly decreased, profitability has suffered, and your carbon footprint remains unchanged."
+        "As a result, your public perception has significantly decreased, profitability has suffered, and your carbon footprint remains unchanged.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
-      nextState: "nextState"
-    }
+      nextState: "nextState",
+    },
   },
   // Scenario 6: Workplace Culture
   workplace_culture_scenario: {
@@ -728,23 +728,21 @@ export const gameScenes = {
           title: "Why Gender Equity Matters",
           body: `Research from McKinsey shows companies with more women in leadership see up to 47% higher returns on equity. Firms in the top 25% for gender diversity are also 27% more likely to outperform peers in profitability. Diverse leadership can improve problem-solving, communication, and innovation, fuelling stronger financial performance.`,
           url: "https://www.mckinsey.com/featured-insights/diversity-and-inclusion",
-          img: "/sprites/human.png"
+          img: "/sprites/human.png",
         },
-        
-        
+
         {
           title: "Men Still Outnumber Women at Every Level",
           body: "Despite efforts toward gender parity, men continue to outnumber women across all corporate levels. This disparity is most pronounced in senior leadership, where only about 1 in 5 C-suite executives is a woman, and just 1 in 25 is a woman of color. The primary cause is inequities in hiring and promotions, particularly at the first step up to manager.",
           url: "https://leanin.org/women-in-the-workplace/2018/men-still-outnumber-women-at-every-level",
-          img: "/sprites/crack.png"
-        },         
+          img: "/sprites/crack.png",
+        },
         {
           title: "Walmart Settles Sex Discrimination Lawsuit",
           body: "In 2023, Walmart agreed to pay $60,000 to settle a lawsuit alleging that the company refused to promote a female employee based on sex stereotypes about women with young children. The EEOC claimed this violated federal law by denying her equal opportunity for advancement.",
           url: "https://www.eeoc.gov/newsroom/walmart-pay-60000-settle-eeoc-sex-discrimination-lawsuit",
-          img: "/sprites/ladder.png"
+          img: "/sprites/ladder.png",
         },
-        
       ],
       background: "/backgrounds/library.jpg",
       sprite: "/sprites/back_to_work.png",
@@ -767,7 +765,7 @@ export const gameScenes = {
       nextState: "nextState",
     },
   },
-  
+
   gender_equity_dialogue_2: {
     type: "dialogue",
     props: {
@@ -783,7 +781,7 @@ export const gameScenes = {
       nextState: "nextState",
     },
   },
-  
+
   gender_equity_dialogue_3: {
     type: "dialogue",
     props: {
@@ -798,5 +796,5 @@ export const gameScenes = {
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
-  },  
+  },
 };
