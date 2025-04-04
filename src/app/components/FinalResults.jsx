@@ -120,7 +120,7 @@ const FinalResults = ({ choicesHistory, restartGame }) => {
                   color: "#ffcc66",
                 }}
               >
-                {metricsLabels[index]}: {value}
+                {metricsLabels[index]}: {Math.max(0, Math.min(100, value))}
               </Typography>
               <Box
                 sx={{
