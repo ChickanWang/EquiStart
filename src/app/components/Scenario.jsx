@@ -92,7 +92,7 @@ const Scenario = ({
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            height: "15vh",
+            height: "22vh",
             padding: 2,
             borderBottom: "4px solid #ffcc00",
           }}
@@ -103,7 +103,7 @@ const Scenario = ({
             color="#ffcc00"
             gutterBottom
             sx={{
-              fontSize: "1.3rem",
+              fontSize: "1.2rem",
               textAlign: "center",
               mb: 2,
               fontFamily: "Inconsolata, monospace",
@@ -121,7 +121,7 @@ const Scenario = ({
             <Typography
               variant="body1"
               sx={{
-                fontSize: "0.8rem",
+                fontSize: "0.85rem",
                 mb: 1,
                 fontFamily: "Inconsolata, monospace",
                 textAlign: "center",
@@ -139,7 +139,7 @@ const Scenario = ({
             alignItems: "center",
             borderTop: "4px solid #ffcc00",
             gap: 2,
-            height: "25vh",
+            height: "17.5vh",
           }}
         >
           {choices.map((choice, i) => (
@@ -147,7 +147,7 @@ const Scenario = ({
               key={i}
               sx={{
                 flex: "1 1 250px",
-                height: "150px",
+                height: "100px",
                 maxWidth: "400px",
                 background: "linear-gradient(145deg, #ffea8c, #ffd966)",
                 boxShadow: "0 4px 6px rgba(0,0,0,0.1)",
