@@ -28,14 +28,19 @@ export function handleNextState(
   seenScenes,
   setSeenScenes,
   prevState,
-  setPrevState
+  setPrevState,
+  metrics
 ) {
   console.log("yeer", prevState);
-  if (seenScenes.size >= 3) {
-    // If 6 or more scenes have been seen, end the game
+  console.log("metrics ", metrics);
+  if (Object.values(metrics).some((metric) => metric <= 0)) {
+    console.log("A metric reached 0, ending the game.");
+    return "finalResults";
+  } else if (seenScenes.size >= 4) {
+    // If 3 or more scenes have been seen, end the game
     return "finalResults";
   } else if (
-    seenScenes.size % 2 == 0 &&
+    seenScenes.size % 2 === 0 &&
     seenScenes.size > 0 &&
     prevState !== "fundingRound"
   ) {
@@ -86,7 +91,8 @@ export default function GamePage() {
           seenScenes,
           setSeenScenes,
           prevState,
-          setPrevState
+          setPrevState,
+          metrics
         )
       );
     }

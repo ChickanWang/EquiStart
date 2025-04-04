@@ -80,7 +80,7 @@ export const gameScenes = {
         {
           label: "Use an AI Resume Screening Tool",
           text: "Use the tool to save on screening time and costs.",
-          effect: [-5, 10, -5, -15],
+          effect: [-50, 10, -5, -15],
           nextState: "ethical_hiring_scenario_dialogue_1",
         },
         {
