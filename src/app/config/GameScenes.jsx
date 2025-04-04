@@ -314,28 +314,33 @@ export const gameScenes = {
     type: "scenario",
     props: {
       title: "Work Efficiency Dilemma",
-      text: `As the demands of your business grows, you decide that it's time to change the way you work and use 
-        more technology to accelerate your processes. `,
+      text: `As the demands of your business grows, you're considering making changes to your work processes and 
+        integrating more technology to accelerate your processes. You've heard of a company called ClearView AI 
+        that is being welcomed and embraced in law enforcement to aid in identifying suspects, perhaps it's worth
+        reaching out to employ their services? You are also aware that some of your employees have been dabbling 
+        and pitching ideas of developing a whitebox AI system for the company to use rather than using other software. You 
+        like the idea of knowing all the ins and outs of the technology you're using, but you're wary of the heavy 
+        investments needed to implement this. What should you do?'`,
       background: "/backgrounds/office_background.jpg",
       research: "efficiency_scenario_research",
       sprite: "/sprites/ceo.png",
       choices: [
         {
-          label: "Mandatory biometrics",
-          text: "Install facial recognition and fingerprint scanners and require verification to access any data.",
-          effect: [-20, -20, -10, -10],
+          label: "Use Clearview AI",
+          text: "Employ Clearview AI's facial recognition service to improve your background checks.",
+          effect: [-20, -20, -20, 0],
           nextState: "efficiency_scenario_dialogue_1",
         },
         {
-          label: "Implement MFA",
-          text: "Require MFA to access any company related data.",
-          effect: [-5, 20, 20, 0],
+          label: "Develop your own AI scanning system",
+          text: "Task your employees to develop an AI system for the company to use to expedite your screening procceses.",
+          effect: [10, 15, 5, 0],
           nextState: "efficiency_scenario_dialogue_2",
         },
         {
-          label: "Increase current security training",
-          text: "Increase completion frequency of your current security training videos.",
-          effect: [-5, -20, -20, 0],
+          label: "Keep your current methods",
+          text: "Stick to current proccesses to save time and money, and avoid the risks of using a blackbox AI system.",
+          effect: [-10, -10, 15, 0],
           nextState: "efficiency_scenario_dialogue_3",
         },
       ],
@@ -347,32 +352,32 @@ export const gameScenes = {
       sources: [
         {
           title:
-            "ICO Orders Serco Leisure to Stop Using Facial Recognition Technology",
-          body: `The Information Commissioner's Office (ICO) in the UK issued an official order to the event management company Serco Leisure
-            to stop using facial recognition technology and fingerprint scanning to monitor employee attendance. The company failed to show 
-            why it is necessary or proportionate to use facial recognition and fingerprint scanning for attendance checks and subsequently 
-            receive pay. There was no clear way for staff to opt out of giving their biometric data and it was deemed neither fair nor 
-            proportionate.
+            "Clearview AI — Controversial Facial Recognition Firm—Fined $33 Million For 'Illegal Database'",
+          body: `Clearview AI has faced multiple sanctions and censures in Europe for violating General Data Protection Regulation rules. 
+          it has been fined $22 million from Italy, Greece, France, and deemed illegal in Germany and Austria. The company has also been fined 
+          $9 million from the UK. The company is facing controversy due to it's database containing over 50 billion scraped images of people's 
+          faces, all of which were obtained and are being used without consent.
           `,
-          url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
-          img: "/sprites/biometric.png",
+          url: "https://www.forbes.com/sites/roberthart/2024/09/03/clearview-ai-controversial-facial-recognition-firm-fined-33-million-for-illegal-database/",
+          img: "/sprites/clearview-ai.png",
         },
         {
-          title: "Case Study: Does Facial Recognition Tech Enhance Security?",
-          body: `A day-care center installed a facial recognition security system to verify and allow authorized individuals to enter and for 
-          parents to pick up their children. It photographs every visitor's face and flags an alarm if the visitor cannot be recognized or if 
-          their face is covered. Multiple false alarms occurred with the system, all five alarms were triggered by dark-skinned women. 
+          title: "White Box vs. Black Box Algorithms in Machine Learning",
+          body: `Industries that are heavily regulated require white box models because it is crucial to be able to explain decisions and ensure 
+          compliance with regulations like the GDPR. White box models allow clear interpretability, auditability, and transparency over 
+          black box approaches. 
           `,
-          url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
-          img: "/sprites/facescanner.png",
+          url: "https://medium.com/biased-algorithms/white-box-vs-black-box-algorithms-in-machine-learning-af460de154ef",
+          img: "/sprites/whitebox.png",
         },
         {
-          title: "Are We Ready to Give Up on Security",
-          body: `Microsoft's 2023 Digital Defense Report found that a popular form of video-based traning reduced phish-clicking behaviour
-            only by 3%. IBM Security found that there is a different in 1.5 million USD or 33.9% in data breach costs between companies with 
-            high and low adoption of security awareness training in the workplace.`,
-          url: "https://thehackernews.com/2023/12/are-we-ready-to-give-up-on-security.html",
-          img: "/sprites/training.png",
+          title:
+            "Combating Employee Burnout With AI And Future Of Work Policies",
+          body: `Artificial intelligence can help combat employee burnout such as through personalized workloads, and automation of repetitive and 
+          time-consuming tasks. For example, Google, Zoom, and Otter.ai have implemented AI in their virtual meeting products to provide AI-generated 
+          meeting notes and action items.`,
+          url: "https://www.forbes.com/sites/davidhenkin/2023/09/27/combating-employee-burnout-with-ai-and-future-of-work-policies/",
+          img: "/sprites/burnout.png",
         },
       ],
       background: "/backgrounds/library.jpg",
@@ -384,15 +389,12 @@ export const gameScenes = {
     type: "dialogue",
     props: {
       dialogueData: [
-        "You decided to mandate facial recognition and fingerprint scanning to verify identities and access resources.",
-        "You drew in some new clients who found your security measures robust and reliable!",
-        "But your facial scanners kept flagging false alarms on your dark-skinned employees and you are receiving more and more internal complaints.",
-        "A lot of your employees who were people of colour have left.",
-        `Both current and ex-employees are speaking out against your security measures and the company's being painted as 
-        a racist, nefarious organization that harvests it's employees' personal data.`,
-        "You lose your new clients and also some of your existing ones.",
-        "Perhaps you jumped the gun on this one.",
-        "As a result, your public perception and diversity has decreased, and employee satisfaction and profitability has significantly decreased.",
+        "You decided use Clearview AI's facial recognition service to help provide your background checks.",
+        "Your employees found the system very efficient and enjoyed using the saved time towards other tasks.",
+        "Unfortunately, Clearview has come under fire from various organizations and agencies for its dubious facial recognition methods.",
+        "There is public outcry lambasting companies who are using Clearview's services, including yours.",
+        "Your clients are also being dragged into the issue and want to sever their relations.",
+        "As a result, your employee satisfaction, profitability, public perception has significantly decreased.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
@@ -403,11 +405,12 @@ export const gameScenes = {
     type: "dialogue",
     props: {
       dialogueData: [
-        "You decided to implement MFA for access to company resources.",
-        "Your employees were slightly annoyed at having to authenticate everytime they accessed things but they agreed that it made things more secure.",
-        "You successfully avoided experiencing a data breach!",
-        "Your relationship with your current clients improved and you also gained a lot more new clients!",
-        "As a result, your profitability and public perception has significantly increased, and employee satisfaction has slightly decreased.",
+        "You decided to implement your own AI system to improve your workforce efficiency.",
+        "Your employees were excited for the change of pace, and got to work right away.",
+        "The process was not easy, and your team was getting frustrated near the end but they finished developing and successfully deployed the system!",
+        "Your clients are happy with your improved services, and the workload is a lighter for your employees as well.",
+        "Since you know all the details and are transparent about your technology, your clients and the public feel more assured in how you conduct your work.",
+        "As a result, public perception has slightly increased, and your employee satisfaction and profitability has increased.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
@@ -419,12 +422,11 @@ export const gameScenes = {
     props: {
       dialogueData: [
         "Well if it ain't broke, don't fix it.",
-        "You decided to not implement additional security measures and required your employees to complete the security training videos again.",
-        "Your workers were slightly annoyed but everyone recompleted their training.                                                                                ",
-        "Unfortunately, it doesn't seem like that was enough, your company still had a data breach happen.",
-        "One of your employees fell for a phishing scam in their email.",
-        "Your company is seen as insecure and unreliable, you lose a lot of your clientele.",
-        "As a result, your profitability and public perception has significantly decreased, and employee satisfaction has slightly decreased. ",
+        "You decided to continue using your current work processes for the time being.",
+        "The recent controversies and scandals around Clearview AI and their clients have you feeling like you dodged a bullet.",
+        "The public is happy that you weren't listed among the companies who used their services.",
+        "However, the increased and tedious workload has caught up to your employees and they are feeling burnt out.",
+        "As a result, public perception has increased, and employee satisfaction and profitability has decreased. ",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
@@ -567,7 +569,7 @@ export const gameScenes = {
     type: "scenario",
     props: {
       title: "Data Center Sustainability Decision",
-      text:  `Your company is expanding operations to handle more facial recognition and identity-tracking data. 
+      text: `Your company is expanding operations to handle more facial recognition and identity-tracking data. 
         This means scaling server infrastructure—raising concerns about environmental impact. Your legal and PR advisor,
         points out that many peers in the surveillance and AI sector are moving toward renewable energy. She asks: 
         <br/>
@@ -584,24 +586,24 @@ export const gameScenes = {
           text: `Migrate data centers to renewable energy-powered, eco-friendly hosting solutions, 
             even if the initial investment is steep.`,
           effect: [30, -20, 30, 0],
-          nextState: "environmental_scenario_dialogue_1"
+          nextState: "environmental_scenario_dialogue_1",
         },
         {
           label: "Maintain Current Operations",
           text: `Continue powering our extensive data-scraping and storage operations with existing 
             energy sources, despite the long-term environmental toll.`,
           effect: [5, 10, -15, 0],
-          nextState: "environmental_scenario_dialogue_2"
+          nextState: "environmental_scenario_dialogue_2",
         },
         {
           label: "Engage in Greenwashing",
           text: `Launch a public relations campaign promoting minor eco-friendly tweaks while keeping 
             our core, energy-intensive data infrastructure unchanged.`,
           effect: [-10, 20, -30, -10],
-          nextState: "environmental_scenario_dialogue_3"
-        }
-      ]
-    }
+          nextState: "environmental_scenario_dialogue_3",
+        },
+      ],
+    },
   },
   environmental_scenario_research: {
     type: "research",
@@ -609,11 +611,11 @@ export const gameScenes = {
       sources: [
         {
           title: "Benefits of Renewable Energy towards Local Economies",
-          body:  `U.S. data centers consume around 2% of the nation's electricity, historically relying on fossil fuels that drive carbon emissions.
+          body: `U.S. data centers consume around 2% of the nation's electricity, historically relying on fossil fuels that drive carbon emissions.
             Renewable projects boost local economies through tax revenue and job creation, 
             while federal incentives like Renewable Energy Certificates further encourage clean energy adoption.`,
           url: "https://www.landgate.com/news/the-synergy-between-data-centers-and-renewable-energy",
-          img: "/sprites/renewable_energy.png"
+          img: "/sprites/renewable_energy.png",
         },
         {
           title: "Environmental Threats Posed by Data Centers",
@@ -622,7 +624,7 @@ export const gameScenes = {
           some hyperscale centers may use over 1 million gallons per day—often in drought-prone areas. In 2019, 53.6 Mt of e-waste was generated
           globally, releasing 98 Mt of CO₂ equivalents from discarded cooling equipment—equal to 0.3% of global energy-related emissions.`,
           url: "https://www.techtarget.com/searchdatacenter/feature/Assess-the-environmental-impact-of-data-centers",
-          img: "/sprites/environmental_impact.png"
+          img: "/sprites/environmental_impact.png",
         },
         {
           title: "Greenwashing of Tech Giants",
@@ -630,13 +632,13 @@ export const gameScenes = {
           Microsoft reported 16 million tonnes CO₂e in 2020 (20 million NY flights) and aims for 100% renewable energy by 2025 and carbon negativity by 2030, backed by $1 billion in carbon removal investment.
           Both companies undermine their pledges by continuing partnerships with oil companies, casting doubt on the credibility and scope (e.g., lack of Scope 3 coverage) of their climate commitments.`,
           url: "https://www.ethicalconsumer.org/technology/amazon-microsoft-greenwashing-technology-industry",
-          img: "/sprites/greenwashing.png"
-        }
+          img: "/sprites/greenwashing.png",
+        },
       ],
       background: "/backgrounds/library.jpg",
       sprite: "/sprites/back_to_work.png",
-      nextState: "environmental_scenario"
-    }
+      nextState: "environmental_scenario",
+    },
   },
   environmental_scenario_dialogue_1: {
     type: "dialogue",
@@ -645,12 +647,12 @@ export const gameScenes = {
         "You decided to invest in renewable energy and eco-friendly hosting solutions.",
         "The initial costs were substantial, but over time, operational expenses decreased due to energy savings.",
         "Your company's commitment to sustainability has enhanced its reputation, attracting environmentally conscious clients.",
-        "As a result, your profitability has improved, public perception has significantly increased, and your carbon footprint has been reduced."
+        "As a result, your profitability has improved, public perception has significantly increased, and your carbon footprint has been reduced.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
-      nextState: "nextState"
-    }
+      nextState: "nextState",
+    },
   },
   environmental_scenario_dialogue_2: {
     type: "dialogue",
@@ -659,12 +661,12 @@ export const gameScenes = {
         "You chose to maintain current energy-intensive operations to avoid immediate financial costs.",
         "While short-term expenses remained stable, increasing energy prices led to higher operational costs over time.",
         "Your company's environmental impact has drawn criticism from stakeholders and clients concerned about sustainability.",
-        "As a result, your profitability has declined, public perception has worsened, and your carbon footprint remains high."
+        "As a result, your profitability has declined, public perception has worsened, and your carbon footprint remains high.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
-      nextState: "nextState"
-    }
+      nextState: "nextState",
+    },
   },
   environmental_scenario_dialogue_3: {
     type: "dialogue",
@@ -673,12 +675,12 @@ export const gameScenes = {
         "You opted to publicly promote minimal environmental efforts without substantial operational changes.",
         "Initially, this improved public perception, but investigative reports exposed the lack of genuine sustainability initiatives.",
         "The revelation of greenwashing damaged your company's reputation and led to a loss of client trust.",
-        "As a result, your public perception has significantly decreased, profitability has suffered, and your carbon footprint remains unchanged."
+        "As a result, your public perception has significantly decreased, profitability has suffered, and your carbon footprint remains unchanged.",
       ],
       background: "/backgrounds/office_background.jpg",
       sprite: "/sprites/ceo.png",
-      nextState: "nextState"
-    }
+      nextState: "nextState",
+    },
   },
   // Scenario 6: Workplace Culture
   workplace_culture_scenario: {
@@ -728,23 +730,21 @@ export const gameScenes = {
           title: "Why Gender Equity Matters",
           body: `Research from McKinsey shows companies with more women in leadership see up to 47% higher returns on equity. Firms in the top 25% for gender diversity are also 27% more likely to outperform peers in profitability. Diverse leadership can improve problem-solving, communication, and innovation, fuelling stronger financial performance.`,
           url: "https://www.mckinsey.com/featured-insights/diversity-and-inclusion",
-          img: "/sprites/human.png"
+          img: "/sprites/human.png",
         },
-        
-        
+
         {
           title: "Men Still Outnumber Women at Every Level",
           body: "Despite efforts toward gender parity, men continue to outnumber women across all corporate levels. This disparity is most pronounced in senior leadership, where only about 1 in 5 C-suite executives is a woman, and just 1 in 25 is a woman of color. The primary cause is inequities in hiring and promotions, particularly at the first step up to manager.",
           url: "https://leanin.org/women-in-the-workplace/2018/men-still-outnumber-women-at-every-level",
-          img: "/sprites/crack.png"
-        },         
+          img: "/sprites/crack.png",
+        },
         {
           title: "Walmart Settles Sex Discrimination Lawsuit",
           body: "In 2023, Walmart agreed to pay $60,000 to settle a lawsuit alleging that the company refused to promote a female employee based on sex stereotypes about women with young children. The EEOC claimed this violated federal law by denying her equal opportunity for advancement.",
           url: "https://www.eeoc.gov/newsroom/walmart-pay-60000-settle-eeoc-sex-discrimination-lawsuit",
-          img: "/sprites/ladder.png"
+          img: "/sprites/ladder.png",
         },
-        
       ],
       background: "/backgrounds/library.jpg",
       sprite: "/sprites/back_to_work.png",
@@ -767,7 +767,7 @@ export const gameScenes = {
       nextState: "nextState",
     },
   },
-  
+
   gender_equity_dialogue_2: {
     type: "dialogue",
     props: {
@@ -783,7 +783,7 @@ export const gameScenes = {
       nextState: "nextState",
     },
   },
-  
+
   gender_equity_dialogue_3: {
     type: "dialogue",
     props: {
@@ -798,5 +798,5 @@ export const gameScenes = {
       sprite: "/sprites/ceo.png",
       nextState: "nextState",
     },
-  },  
+  },
 };
