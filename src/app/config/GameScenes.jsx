@@ -447,7 +447,7 @@ export const gameScenes = {
     Meanwhile, your legal team suggests alternative tactics to retain valuable data. What path will you take?`,
       background: "/backgrounds/court_background.png",
       research: "right_to_be_forgotten_scenario_research",
-      sprite: "/sprites/ceo.png",
+      sprite: "/sprites/lawyer.png",
       choices: [
         {
           label: "Fully Honor Deletion Requests",
