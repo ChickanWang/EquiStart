@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: "Old London";
-  src: url("/public/fonts/old_london/OldLondon.ttf") format("truetype");
+  src: url("./OldLondon.ttf") format("truetype");
 }
 
 html,
