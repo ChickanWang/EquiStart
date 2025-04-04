@@ -133,7 +133,19 @@ const FundingRound = ({ setState }) => {
           onClick={() => {
             setState("nextState");
           }}
-          sx={{ mt: 2, fontFamily: "'Press Start 2P', Inconsolata, monospace" }}
+          sx={{
+            fontFamily: "MedievalSharp, cursive, Inconsolata",
+            backgroundColor: "#5b3a29",
+            color: "#f2e6d0",
+            border: "2px solid #40241a",
+            boxShadow: "4px 4px 0px #40241a",
+            textTransform: "none",
+            padding: "10px 50px", // Increased padding
+            fontSize: "1.2rem", // Increased font size
+            "&:hover": {
+              backgroundColor: "#6c4a35",
+            },
+          }}
         >
           Next
         </Button>
