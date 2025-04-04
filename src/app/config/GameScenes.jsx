@@ -244,13 +244,6 @@ export const gameScenes = {
           url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
           img: "/sprites/facescanner.png",
         },
-        // {
-        //   title:
-        //     "",
-        //   body: ``,
-        //   url: "",
-        //   img: "/sprites/mfa.png",
-        // },
         {
           title: "Are We Ready to Give Up on Security",
           body: `Microsoft's 2023 Digital Defense Report found that a popular form of video-based traning reduced phish-clicking behaviour
@@ -373,13 +366,6 @@ export const gameScenes = {
           url: "https://hbr.org/2022/11/does-facial-recognition-tech-enhance-security",
           img: "/sprites/facescanner.png",
         },
-        // {
-        //   title:
-        //     "",
-        //   body: ``,
-        //   url: "",
-        //   img: "/sprites/mfa.png",
-        // },
         {
           title: "Are We Ready to Give Up on Security",
           body: `Microsoft's 2023 Digital Defense Report found that a popular form of video-based traning reduced phish-clicking behaviour
