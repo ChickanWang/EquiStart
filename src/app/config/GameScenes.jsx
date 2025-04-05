@@ -70,7 +70,7 @@ export const gameScenes = {
       you and your hiring team have the time to look through all these resumes and interview so many candidates. One of your
       colleagues mentioned how AI resume screening tools accelerated their hiring processes. You have also been seeing
       advertisements from a company called HireVue that uses AI-powered video interviewing and assessments that claims to
-      make hiring faster and fairer with facial and voice recognition scanning. If it's claims are true it could save you a
+      make hiring faster and fairer with facial and voice recognition scanning. If its claims are true it could save you a
       lot of time and money in the long run. What will you do?`,
       background: "/backgrounds/office_background.jpg",
       research: "ethical_hiring_scenario_research",
