@@ -188,7 +188,7 @@ export const gameScenes = {
     type: "scenario",
     props: {
       title: "Security Dilemma",
-      text: `Recently in the news there more and more talks of company data breaches. One by one your competitors have been victims of a data 
+      text: `Recently in the news there are more and more talks of company data breaches. One by one your competitors have been victims of a data 
         breach and are facing backlash. Your current clients are now getting paranoid and are looking for reassurance from you to ease their 
         worries. Improving your company's security could be a smart move since this is the perfect chance to steal your competitors' clients 
         and also put an end to this feeling that you're next on the chopping block. You've been looking into a few methods on how to improve 
